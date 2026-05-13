@@ -1,0 +1,10 @@
+{
+  "name": "Senior AI English Coach",
+  "short_name": "AI English",
+  "description": "Senior-friendly English role-play coach with native-style expression rewrites.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f1e8",
+  "theme_color": "#12343b",
+  "icons": []
+}
