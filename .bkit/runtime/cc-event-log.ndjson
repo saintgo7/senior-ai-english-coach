@@ -1,0 +1,14 @@
+{"hookEvent":"Stop","ccVersion":"2.1.149","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-23T03:02:55.814Z","context":{"agent":"main","skill":null}}
+{"hookEvent":"Stop","ccVersion":"2.1.149","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-23T03:06:07.108Z","context":{"agent":"main","skill":null}}
+{"hookEvent":"Stop","ccVersion":"2.1.149","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-23T03:10:12.911Z","context":{"agent":"main","skill":null}}
+{"hookEvent":"SubagentStop","ccVersion":"2.1.150","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-23T05:22:14.212Z","context":{"agentType":"general-purpose","status":"completed"}}
+{"hookEvent":"SubagentStop","ccVersion":"2.1.150","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-23T05:40:08.952Z","context":{"agentType":"general-purpose","status":"completed"}}
+{"hookEvent":"SubagentStop","ccVersion":"2.1.150","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-23T06:16:38.656Z","context":{"agentType":"general-purpose","status":"completed"}}
+{"hookEvent":"SubagentStop","ccVersion":"2.1.150","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-23T06:51:43.589Z","context":{"agentType":"general-purpose","status":"completed"}}
+{"hookEvent":"SubagentStop","ccVersion":"2.1.150","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-23T07:25:18.601Z","context":{"agentType":"unknown","status":"completed"}}
+{"hookEvent":"SubagentStop","ccVersion":"2.1.150","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-23T07:30:13.888Z","context":{"agentType":"general-purpose","status":"completed"}}
+{"hookEvent":"SubagentStop","ccVersion":"2.1.150","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-23T07:32:33.997Z","context":{"agentType":"unknown","status":"completed"}}
+{"hookEvent":"Stop","ccVersion":"2.1.150","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-23T07:38:24.336Z","context":{"agent":"main","skill":null}}
+{"hookEvent":"Stop","ccVersion":"2.1.150","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-24T14:32:30.216Z","context":{"agent":"main","skill":null}}
+{"hookEvent":"SubagentStop","ccVersion":"2.1.150","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-24T14:32:31.731Z","context":{"agentType":"unknown","status":"completed"}}
+{"hookEvent":"SessionEnd","ccVersion":"2.1.150","sessionId":"821a4896-087b-4a0d-aca7-cda318a519a0","timestamp":"2026-05-24T14:32:48.290Z","context":{"reason":"other"}}

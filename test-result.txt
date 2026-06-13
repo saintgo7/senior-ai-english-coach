@@ -1,0 +1,571 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.6 [39m[90m/Users/saint/01_DEV/senior-ai-english-coach[39m
+
+ [31m❯[39m src/App.test.tsx [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 291[2mms[22m[39m
+[31m     [31m×[31m shows categories, lets a learner practice, and saves a review card[39m[32m 289[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/App.test.tsx[2m > [22mApp[2m > [22mshows categories, lets a learner practice, and saves a review card
+[31m[1mTestingLibraryElementError[22m[39m: Unable to find an accessible element with the role "button" and name `/복습 카드/`
+
+Here are the accessible roles:
+
+  banner:
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"top-app-bar"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  link:
+
+  Name "Pamout / AI 영어 코치":
+  [36m<a[39m
+    [33mclass[39m=[32m"brand-logo"[39m
+    [33mhref[39m=[32m"#"[39m
+  [36m/>[39m
+
+  Name "홈 / Home":
+  [36m<a[39m
+    [33mclass[39m=[32m"nav-link active"[39m
+    [33mhref[39m=[32m"#"[39m
+  [36m/>[39m
+
+  Name "학습 코스 / Courses":
+  [36m<a[39m
+    [33mclass[39m=[32m"nav-link"[39m
+    [33mhref[39m=[32m"#"[39m
+  [36m/>[39m
+
+  Name "AI 대화방 / Tutor":
+  [36m<a[39m
+    [33mclass[39m=[32m"nav-link"[39m
+    [33mhref[39m=[32m"#"[39m
+  [36m/>[39m
+
+  Name "복습 단어장 / Words":
+  [36m<a[39m
+    [33mclass[39m=[32m"nav-link"[39m
+    [33mhref[39m=[32m"#"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  navigation:
+
+  Name "":
+  [36m<nav[39m
+    [33mclass[39m=[32m"nav-links"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "help":
+  [36m<button[39m
+    [33mclass[39m=[32m"icon-btn material-symbols-outlined"[39m
+  [36m/>[39m
+
+  Name "settings":
+  [36m<button[39m
+    [33mclass[39m=[32m"icon-btn material-symbols-outlined"[39m
+  [36m/>[39m
+
+  Name "01. 일상 회화 • Daily Beginner • 초급 병원 예약 변경하기 학습 목표: 진료 예약을 정중하게 변경한다.":
+  [36m<button[39m
+    [33mclass[39m=[32m"scenario-card "[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "02. 비즈니스 • Business Intermediate • 중급 회의에서 정중하게 다른 의견 말하기 학습 목표: 상대 의견을 인정하면서 내 관점을 말한다.":
+  [36m<button[39m
+    [33mclass[39m=[32m"scenario-card selected"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "03. 여행 영어 • Travel Beginner • 초급 공항 체크인에서 요청하기 학습 목표: 체크인 상황에서 좌석과 수하물을 묻는다.":
+  [36m<button[39m
+    [33mclass[39m=[32m"scenario-card "[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "mic":
+  [36m<button[39m
+    [33mclass[39m=[32m"voice-input-btn "[39m
+    [33mtitle[39m=[32m"Voice Input"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "AI 코치에게 보내기":
+  [36m<button[39m
+    [33maria-label[39m=[32m"AI 코치에게 보내기"[39m
+    [33mclass[39m=[32m"chat-send-btn active"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "volume_up":
+  [36m<button[39m
+    [33mclass[39m=[32m"audio-btn"[39m
+    [33mtitle[39m=[32m"Listen Pronunciation"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "volume_up":
+  [36m<button[39m
+    [33mclass[39m=[32m"audio-btn"[39m
+    [33mtitle[39m=[32m"Listen Pronunciation"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "volume_up":
+  [36m<button[39m
+    [33mclass[39m=[32m"audio-btn"[39m
+    [33mtitle[39m=[32m"Listen Pronunciation"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "volume_up":
+  [36m<button[39m
+    [33mclass[39m=[32m"audio-btn"[39m
+    [33mtitle[39m=[32m"Listen Pronunciation"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "volume_up":
+  [36m<button[39m
+    [33mclass[39m=[32m"audio-btn"[39m
+    [33mtitle[39m=[32m"Listen Pronunciation"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "bookmark 복습 단어장에 보관 • Save to Review Deck":
+  [36m<button[39m
+    [33mclass[39m=[32m"save-bookmark-btn"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  img:
+
+  Name "User profile avatar":
+  [36m<img[39m
+    [33malt[39m=[32m"User profile avatar"[39m
+    [33msrc[39m=[32m"https://lh3.googleusercontent.com/aida-public/AB6AXuB930q4es3Gu0EOgb2B9eXOc6fMaxcaJDAv1AwnBEWj2MxlBGV2SLd49938DRYuU4rno2CHutj5UGbbPLVOXcsV73pxm-jIfqRznEueBwDCa58EKkvZxjA66oA0O8wxJ82Q7R3gyGx1Z1w0bszqnDhX2akskJ2ak04fVS_cSkElNjqkMoCGVX8xyJpx0GB-5blVeeNH0TF-q84JurWgfwUKkpgI-RlB6kDG26MJrnjoNXUc_DYoYQkOOv8i_IHCdZNMCojY_gAA4aWO"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  main:
+
+  Name "":
+  [36m<main[39m
+    [33mclass[39m=[32m"main-content"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  region:
+
+  Name "오늘의 1시간 학습 계획":
+  [36m<section[39m
+    [33maria-label[39m=[32m"오늘의 1시간 학습 계획"[39m
+    [33mclass[39m=[32m"timeline-section"[39m
+  [36m/>[39m
+
+  Name "상황 선택":
+  [36m<section[39m
+    [33maria-label[39m=[32m"상황 선택"[39m
+    [33mclass[39m=[32m"scenario-picker-section"[39m
+  [36m/>[39m
+
+  Name "연습 공간":
+  [36m<section[39m
+    [33maria-label[39m=[32m"연습 공간"[39m
+    [33mclass[39m=[32m"practice-room"[39m
+  [36m/>[39m
+
+  Name "오늘의 표현 요약":
+  [36m<section[39m
+    [33maria-label[39m=[32m"오늘의 표현 요약"[39m
+    [33mclass[39m=[32m"lesson-brief"[39m
+  [36m/>[39m
+
+  Name "AI 코치 피드백":
+  [36m<section[39m
+    [33maria-label[39m=[32m"AI 코치 피드백"[39m
+    [33mclass[39m=[32m"feedback-panel"[39m
+  [36m/>[39m
+
+  Name "복습 카드 목록":
+  [36m<section[39m
+    [33maria-label[39m=[32m"복습 카드 목록"[39m
+    [33mclass[39m=[32m"review-deck"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  heading:
+
+  Name "Curated Syllabus 오늘의 추천 영어 학습 코스":
+  [36m<h2[39m
+    [33mclass[39m=[32m"editorial-section-title"[39m
+  [36m/>[39m
+
+  Name "회의에서 정중하게 다른 의견 말하기":
+  [36m<h2 />[39m
+
+  Name "회의에서 정중하게 다른 의견 말하기":
+  [36m<h2[39m
+    [33mstyle[39m=[32m"font-size: 22px; margin: 6px 0px 8px; font-weight: 700; font-family: Lora, Georgia, serif;"[39m
+  [36m/>[39m
+
+  Name "필수 표현 어휘 • Vocabulary":
+  [36m<h3[39m
+    [33mstyle[39m=[32m"font-size: 14px; font-weight: 700; color: var(--text); margin: 16px 0px 8px; text-transform: uppercase; letter-spacing: 0.05em;"[39m
+  [36m/>[39m
+
+  Name "개인 복습 단어장 저장된 복습 카드 0개 • Journal (0)":
+  [36m<h2[39m
+    [33mstyle[39m=[32m"display: flex; flex-direction: column;"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  strong:
+
+  Name "":
+  [36m<strong[39m
+    [33mclass[39m=[32m"scenario-title"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<strong[39m
+    [33mclass[39m=[32m"scenario-title"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<strong[39m
+    [33mclass[39m=[32m"scenario-title"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<strong[39m
+    [33mclass[39m=[32m"vocab-english"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<strong[39m
+    [33mclass[39m=[32m"vocab-english"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<strong[39m
+    [33mclass[39m=[32m"vocab-english"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<strong[39m
+    [33mclass[39m=[32m"vocab-english"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<strong[39m
+    [33mclass[39m=[32m"vocab-english"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  --------------------------------------------------
+  paragraph:
+
+  Name "":
+  [36m<p[39m
+    [33mstyle[39m=[32m"font-size: 14px; color: var(--outline); margin: 0px;"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33maria-live[39m=[32m"polite"[39m
+    [33mclass[39m=[32m"action-status-text"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mstyle[39m=[32m"font-size: 14.5px; color: var(--outline); margin: 0px;"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mstyle[39m=[32m"margin: 0px;"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mstyle[39m=[32m"margin: 0px;"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mstyle[39m=[32m"margin: 0px 0px 4px; font-weight: 700;"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mstyle[39m=[32m"margin: 0px; font-size: 13.5px; color: var(--text);"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mstyle[39m=[32m"margin: 6px 0px 0px; font-style: italic; font-size: 12px; color: var(--outline);"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mstyle[39m=[32m"color: var(--outline); margin: 0px; font-size: 14px; font-style: italic;"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  textbox:
+
+  Name "연습 문장 입력":
+  [36m<input[39m
+    [33maria-label[39m=[32m"연습 문장 입력"[39m
+    [33mclass[39m=[32m"chat-text-input"[39m
+    [33mplaceholder[39m=[32m"여기에 영어로 답변을 작성해 보세요. / Type your English sentence here..."[39m
+    [33mtype[39m=[32m"text"[39m
+    [33mvalue[39m=[32m"I disagree your idea."[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  article:
+
+  Name "":
+  [36m<article[39m
+    [33mclass[39m=[32m"vocab-item"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<article[39m
+    [33mclass[39m=[32m"vocab-item"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<article[39m
+    [33mclass[39m=[32m"vocab-item"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<article[39m
+    [33mclass[39m=[32m"vocab-item"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<article[39m
+    [33mclass[39m=[32m"vocab-item"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"app-shell"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"top-app-bar"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33mclass[39m=[32m"brand-logo"[39m
+          [33mhref[39m=[32m"#"[39m
+        [36m>[39m
+          [0mPamout / AI 영어 코치[0m
+        [36m</a>[39m
+        [36m<nav[39m
+          [33mclass[39m=[32m"nav-links"[39m
+        [36m>[39m
+          [36m<a[39m
+            [33mclass[39m=[32m"nav-link active"[39m
+            [33mhref[39m=[32m"#"[39m
+          [36m>[39m
+            [0m홈 / Home[0m
+          [36m</a>[39m
+          [36m<a[39m
+            [33mclass[39m=[32m"nav-link"[39m
+            [33mhref[39m=[32m"#"[39m
+          [36m>[39m
+            [0m학습 코스 / Courses[0m
+          [36m</a>[39m
+          [36m<a[39m
+            [33mclass[39m=[32m"nav-link"[39m
+            [33mhref[39m=[32m"#"[39m
+          [36m>[39m
+            [0mAI 대화방 / Tutor[0m
+          [36m</a>[39m
+          [36m<a[39m
+            [33mclass[39m=[32m"nav-link"[39m
+            [33mhref[39m=[32m"#"[39m
+          [36m>[39m
+            [0m복습 단어장 / Words[0m
+          [36m</a>[39m
+        [36m</nav>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"header-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"icon-btn material-symbols-outlined"[39m
+          [36m>[39m
+            [0mhelp[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"icon-btn material-symbols-outlined"[39m
+          [36m>[39m
+            [0msettings[0m
+          [36m</button>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"profile-avatar"[39m
+          [36m>[39m
+            [36m<img[39m
+              [33malt[39m=[32m"User profile avatar"[39m
+              [33msrc[39m=[32m"https://lh3.googleusercontent.com/aida-public/AB6AXuB930q4es3Gu0EOgb2B9eXOc6fMaxcaJDAv1AwnBEWj2MxlBGV2SLd49938DRYuU4rno2CHutj5UGbbPLVOXcsV73pxm-jIfqRznEueBwDCa58EKkvZxjA66oA0O8wxJ82Q7R3gyGx1Z1w0bszqnDhX2akskJ2ak04fVS_cSkElNjqkMoCGVX8xyJpx0GB-5blVeeNH0TF-q84JurWgfwUKkpgI-RlB6kDG26MJrnjoNXUc_DYoYQkOOv8i_IHCdZNMCojY_gAA4aWO"[39m
+            [36m/>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"main-content"[39m
+      [36m>[39m
+        [36m<section[39m
+          [33maria-label[39m=[32m"오늘의 1시간 학습 계획"[39m
+          [33mclass[39m=[32m"timeline-section"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"timeline-container"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"agenda-masthead"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"agenda-item completed"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"agenda-num"[39m
+                [36m>[39m
+                  [0m01[0m
+                [36m</span>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"agenda-label"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"agenda-label-ko"[39m
+                  [36m>[39m
+                    [0m단어 학습 (15분)[0m
+                  [36m</span>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"agenda-label-en"[39m
+                  [36m>[39m
+                    [0mVocabulary (15m)[0m
+                  [36m</span>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"agenda-separator"[39m
+              [36m>[39m
+                [0m•[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"agenda-item active"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"agenda-num"[39m
+                [36m>[39m
+                  [0m02[0m
+                [36m</span>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"agenda-label"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"agenda-label-ko"[39m
+                  [36m>[39m
+                    [0m상황극 회화 (20분)[0m
+                  [36m</span>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"agenda-label-en"[39m
+                  [36m>[39m
+                    [0mRoleplay (20m)[0m
+                  [36m</span>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"agenda-separator"[39m
+              [36m>[39m
+                [0m•[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"agenda-item upcoming"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"agenda-num"[39m
+                [36m>[39m
+                  [0m03[0m
+                [36m</span>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"agenda-label"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"agenda-label-ko"[39m
+                  [36m>[39m
+                    [0m원어민 표현 교정 (15분)[0m
+                  [36m</span>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"agenda-label-en"[39m
+                  [36m>[39m
+                    [0mNative Corrections (15m)[0m
+                  [36m</span>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"agenda-separator"[39m
+              [36m>[39m
+                [0m•[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"agenda-item upcoming"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"agenda-num"[39m
+                [36m>[39m
+                  [0m04[0m
+                [36m</span>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"agenda-label"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"agenda-label-ko"[39m
+                  [36m>[39m
+                    [0m복습 카드 (10분)[0m
+                  [36m</span>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"agenda-label-en"[39m
+                  [36m>[3...
+[90m [2m❯[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m76:38[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m52:17[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+[36m [2m❯[22m src/App.test.tsx:[2m21:29[22m[39m
+    [90m 19|[39m     expect(await screen.findByText((_, element) => element?.tagName ==…
+    [90m 20|[39m
+    [90m 21|[39m     [35mawait[39m user[33m.[39m[34mclick[39m(screen[33m.[39m[34mgetByRole[39m([32m'button'[39m[33m,[39m { name[33m:[39m [36m/복습 카드/[39m }))[33m;[39m
+    [90m   |[39m                             [31m^[39m
+    [90m 22|[39m     expect(screen.getByText('저장된 복습 카드 1개 • Journal (1)')).toBeInTheDo…
+    [90m 23|[39m   })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m   Start at [22m 11:45:29
+[2m   Duration [22m 773ms[2m (transform 76ms, setup 46ms, import 128ms, tests 291ms, environment 216ms)[22m
+

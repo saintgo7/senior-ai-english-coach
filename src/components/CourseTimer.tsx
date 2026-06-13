@@ -1,21 +1,44 @@
+import { Fragment } from 'react';
+
 export function CourseTimer() {
-  const blocks = [
-    ['15분', '단어와 숙어'],
-    ['20분', '상황극 회화'],
-    ['15분', '원어민식 표현 교정'],
-    ['10분', '복습 카드'],
+  const steps = [
+    { id: 'vocab', labelKo: '단어', labelEn: 'Vocab', status: 'completed', num: '1' },
+    { id: 'roleplay', labelKo: '회화', labelEn: 'Practice', status: 'active', num: '2' },
+    { id: 'corrections', labelKo: '교정', labelEn: 'Correction', status: 'upcoming', num: '3' },
+    { id: 'review', labelKo: '복습', labelEn: 'Review', status: 'upcoming', num: '4' },
   ];
 
   return (
-    <section className="panel course-timer" aria-label="오늘의 1시간 학습 계획">
-      <h2>오늘의 1시간 플랜</h2>
-      <div className="timer-grid">
-        {blocks.map(([time, label]) => (
-          <div className="time-block" key={label}>
-            <strong>{time}</strong>
-            <span>{label}</span>
+    <section className="timeline-section" aria-label="학습 계획">
+      <div className="agenda-masthead">
+        {/* Simplified numbered stages */}
+        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+          {steps.map((step, index) => (
+            <Fragment key={step.id}>
+              <div className={`agenda-item ${step.status}`}>
+                <span className="agenda-num">{step.num}.</span>
+                <div className="agenda-label">
+                  <span className="agenda-label-ko">{step.labelKo}</span>
+                  <span className="agenda-label-en">{step.labelEn}</span>
+                </div>
+              </div>
+              {index < steps.length - 1 && (
+                <span className="agenda-separator" aria-hidden="true">
+                  →
+                </span>
+              )}
+            </Fragment>
+          ))}
+        </div>
+
+        {/* Style 2 inspired Streak Widget */}
+        <div className="streak-masthead-widget">
+          <span style={{ fontSize: '14px' }}>🔥</span>
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }}>
+            <span style={{ fontWeight: 700 }}>7일 연속 학습 중</span>
+            <span style={{ fontSize: '10px', opacity: 0.8, textTransform: 'uppercase' }}>7 Days Streak • 45m left</span>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-export type ScenarioCategory = 'daily' | 'business' | 'travel';
+export type ScenarioCategory = 'daily' | 'business' | 'travel' | 'it';
 
 export type LessonTerm = {
   english: string;

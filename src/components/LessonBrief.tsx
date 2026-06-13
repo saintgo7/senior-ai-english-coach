@@ -1,34 +1,104 @@
 import type { Scenario } from '../domain/types';
 
 export function LessonBrief({ scenario }: { scenario: Scenario }) {
+  function handlePlayAudio(text: string) {
+    if ('speechSynthesis' in window) {
+      // Cancel previous speech to prevent overlapping sounds
+      window.speechSynthesis.cancel();
+      
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      
+      const voices = window.speechSynthesis.getVoices();
+      
+      // Prioritize clear, premium natural-sounding voices (e.g., Samantha, Google US, premium assistants)
+      const idealVoice = voices.find(
+        (v) =>
+          v.lang.startsWith('en-') &&
+          (v.name.includes('Samantha') ||
+            v.name.includes('Google US English') ||
+            v.name.includes('Natural') ||
+            v.name.includes('Daniel') ||
+            v.name.includes('Zira') ||
+            v.name.includes('Microsoft David'))
+      ) || voices.find((v) => v.lang.startsWith('en-'));
+      
+      if (idealVoice) {
+        utterance.voice = idealVoice;
+      }
+      
+      // Micro-adjustments for bright, comfortable language learning tone
+      utterance.pitch = 1.05; // Bright, youthful, and high-clarity tone
+      utterance.rate = 0.9;   // 10% slower rate for comfortable pronunciation coaching
+      
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
   return (
-    <section className="panel lesson-brief">
-      <div>
-        <p className="eyebrow">{scenario.durationMinutes}분 코스</p>
-        <h2>{scenario.title}</h2>
-        <p>{scenario.koreanExplanation}</p>
+    <section className="lesson-brief" aria-label="오늘의 표현 요약">
+      <div style={{ marginBottom: '20px' }}>
+        <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--outline)', fontWeight: 600 }}>
+          Stage I • Reference Syllabus ({scenario.durationMinutes}m)
+        </span>
+        <h2 style={{ fontSize: '22px', margin: '6px 0 8px', fontWeight: 700, fontFamily: 'Lora, Georgia, serif' }}>
+          {scenario.title}
+        </h2>
+        <p style={{ fontSize: '14.5px', color: 'var(--outline)', margin: 0 }}>
+          {scenario.koreanExplanation}
+        </p>
       </div>
-      <div className="term-columns">
-        <div>
-          <h3>단어</h3>
-          {scenario.keyWords.map((term) => (
-            <article className="term-card" key={term.english}>
-              <strong>{term.english}</strong>
-              <span>{term.korean}</span>
-              <small>{term.example}</small>
-            </article>
-          ))}
-        </div>
-        <div>
-          <h3>숙어</h3>
-          {scenario.idioms.map((term) => (
-            <article className="term-card" key={term.english}>
-              <strong>{term.english}</strong>
-              <span>{term.korean}</span>
-              <small>{term.example}</small>
-            </article>
-          ))}
-        </div>
+
+      <div className="vocab-list">
+        <h3 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text)', margin: '16px 0 8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          필수 표현 어휘 • Vocabulary
+        </h3>
+        
+        {/* Render Words */}
+        {scenario.keyWords.map((term) => (
+          <article className="vocab-item" key={term.english}>
+            <div className="vocab-text">
+              <strong className="vocab-english">{term.english}</strong>
+              <span className="vocab-korean">{term.korean}</span>
+              <small style={{ fontSize: '12px', color: 'var(--outline)', marginTop: '4px' }}>
+                Ex: {term.example}
+              </small>
+            </div>
+            <button
+              className="audio-btn"
+              onClick={() => handlePlayAudio(term.english)}
+              title="Listen Pronunciation"
+              type="button"
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+                volume_up
+              </span>
+            </button>
+          </article>
+        ))}
+
+        {/* Render Idioms */}
+        {scenario.idioms.map((term) => (
+          <article className="vocab-item" key={term.english}>
+            <div className="vocab-text">
+              <strong className="vocab-english">{term.english}</strong>
+              <span className="vocab-korean">{term.korean}</span>
+              <small style={{ fontSize: '12px', color: 'var(--outline)', marginTop: '4px' }}>
+                Ex: {term.example}
+              </small>
+            </div>
+            <button
+              className="audio-btn"
+              onClick={() => handlePlayAudio(term.english)}
+              title="Listen Pronunciation"
+              type="button"
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+                volume_up
+              </span>
+            </button>
+          </article>
+        ))}
       </div>
     </section>
   );
