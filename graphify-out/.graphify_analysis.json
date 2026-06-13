@@ -29,7 +29,9 @@
       "src_app",
       "src_app_app",
       "src_app_test",
-      "src_main"
+      "src_main",
+      "test_result_app",
+      "test_result_testing_library"
     ],
     "1": [
       "package",
@@ -78,16 +80,16 @@
     "3": [
       "data_scenarios",
       "data_scenarios_corescenarios",
-      "scenarios_business_hr",
-      "scenarios_business_hr_businesshrscenarios",
-      "scenarios_business_meetings",
-      "scenarios_business_meetings_businessmeetingsscenarios",
-      "scenarios_daily_finance",
-      "scenarios_daily_finance_dailyfinancescenarios",
-      "scenarios_it_client",
-      "scenarios_it_client_itclientscenarios",
+      "scenarios_business_client",
+      "scenarios_business_client_businessclientscenarios",
+      "scenarios_daily_community",
+      "scenarios_daily_community_dailycommunityscenarios",
       "scenarios_it_devops",
       "scenarios_it_devops_itdevopsscenarios",
+      "scenarios_travel_culture",
+      "scenarios_travel_culture_travelculturescenarios",
+      "scenarios_travel_emergency",
+      "scenarios_travel_emergency_travelemergencyscenarios",
       "scenarios_travel_transit",
       "scenarios_travel_transit_traveltransitscenarios"
     ],
@@ -107,39 +109,34 @@
       "tsconfig_node_include"
     ],
     "5": [
-      "api_coach_practice_turn",
+      "components_lessonbrief",
+      "components_lessonbrief_lessonbrief",
+      "domain_types_scenario",
+      "scenarios_business_meetings",
+      "scenarios_business_meetings_businessmeetingsscenarios",
+      "scenarios_it_agile",
+      "scenarios_it_agile_itagilescenarios",
+      "scenarios_it_code",
+      "scenarios_it_code_itcodescenarios"
+    ],
+    "6": [
       "app_test",
       "data_scenarios_getscenariobyid",
       "data_scenarios_scenarios",
       "data_scenarios_test",
       "dev_log_001_scenario_expansion",
       "hooks_use_review_deck_test",
-      "readme_senior_ai_english_coach",
-      "services_ai_coach_service",
       "services_ai_coach_service_test",
       "status_senior_ai_english_coach"
-    ],
-    "6": [
-      "components_lessonbrief",
-      "components_lessonbrief_lessonbrief",
-      "domain_types_scenario",
-      "scenarios_daily_social",
-      "scenarios_daily_social_dailysocialscenarios",
-      "scenarios_it_code",
-      "scenarios_it_code_itcodescenarios",
-      "scenarios_it_remote",
-      "scenarios_it_remote_itremotescenarios"
     ],
     "7": [
       "domain_types",
       "domain_types_lessonterm",
       "domain_types_scenariocategory",
-      "scenarios_it_agile",
-      "scenarios_it_agile_itagilescenarios",
+      "scenarios_it_client",
+      "scenarios_it_client_itclientscenarios",
       "scenarios_it_incident",
-      "scenarios_it_incident_itincidentscenarios",
-      "scenarios_travel_culture",
-      "scenarios_travel_culture_travelculturescenarios"
+      "scenarios_it_incident_itincidentscenarios"
     ],
     "8": [
       "package_dependencies",
@@ -151,76 +148,85 @@
       "package_dependencies_vitejs_plugin_react"
     ],
     "9": [
+      "api_coach_practice_turn",
+      "readme_senior_ai_english_coach",
+      "services_ai_coach_service"
+    ],
+    "10": [
       "test_setup",
       "test_setup_length",
       "test_setup_storage"
     ],
-    "10": [
+    "11": [
       "tsconfig",
       "tsconfig_files",
       "tsconfig_references"
     ],
-    "11": [
+    "12": [
       "public_service_worker",
       "public_service_worker_app_shell"
     ],
-    "12": [
-      "scenarios_business_client",
-      "scenarios_business_client_businessclientscenarios"
-    ],
     "13": [
-      "scenarios_daily_community",
-      "scenarios_daily_community_dailycommunityscenarios"
+      "scenarios_business_hr",
+      "scenarios_business_hr_businesshrscenarios"
     ],
     "14": [
+      "scenarios_daily_finance",
+      "scenarios_daily_finance_dailyfinancescenarios"
+    ],
+    "15": [
       "scenarios_daily_health",
       "scenarios_daily_health_dailyhealthscenarios"
     ],
-    "15": [
+    "16": [
+      "scenarios_daily_social",
+      "scenarios_daily_social_dailysocialscenarios"
+    ],
+    "17": [
       "scenarios_it_interview",
       "scenarios_it_interview_itinterviewscenarios"
     ],
-    "16": [
+    "18": [
       "scenarios_it_leadership",
       "scenarios_it_leadership_itleadershipscenarios"
     ],
-    "17": [
+    "19": [
       "scenarios_it_product",
       "scenarios_it_product_itproductscenarios"
     ],
-    "18": [
-      "scenarios_travel_emergency",
-      "scenarios_travel_emergency_travelemergencyscenarios"
-    ],
-    "19": [
-      "img_editorial_mockup"
-    ],
     "20": [
-      "img_neobrutalism_mockup"
+      "scenarios_it_remote",
+      "scenarios_it_remote_itremotescenarios"
     ],
     "21": [
-      "img_slate_mockup"
+      "img_editorial_mockup"
     ],
     "22": [
-      "index_html"
+      "img_neobrutalism_mockup"
     ],
     "23": [
+      "img_slate_mockup"
+    ],
+    "24": [
+      "index_html"
+    ],
+    "25": [
       "vite_config"
     ]
   },
   "cohesion": {
-    "0": 0.11330049261083744,
+    "0": 0.1032258064516129,
     "1": 0.1,
     "2": 0.1,
     "3": 0.2087912087912088,
     "4": 0.15384615384615385,
-    "5": 0.2,
-    "6": 0.2222222222222222,
-    "7": 0.2222222222222222,
+    "5": 0.2222222222222222,
+    "6": 0.2857142857142857,
+    "7": 0.2857142857142857,
     "8": 0.2857142857142857,
     "9": 0.6666666666666666,
     "10": 0.6666666666666666,
-    "11": 1.0,
+    "11": 0.6666666666666666,
     "12": 1.0,
     "13": 1.0,
     "14": 1.0,
@@ -232,7 +238,9 @@
     "20": 1.0,
     "21": 1.0,
     "22": 1.0,
-    "23": 1.0
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0
   },
   "gods": [
     {
@@ -289,6 +297,17 @@
   "surprises": [
     {
       "source": "Project Status - Pamout",
+      "target": "AI Coach Service",
+      "source_files": [
+        "STATUS.md",
+        "src/services/aiCoachService.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc \u2194 code); connects across different repos/directories; bridges separate communities; peripheral node `AI Coach Service` unexpectedly reaches hub `Project Status - Pamout`"
+    },
+    {
+      "source": "Project Status - Pamout",
       "target": "App Integration Tests",
       "source_files": [
         "STATUS.md",
@@ -308,17 +327,6 @@
       "confidence": "EXTRACTED",
       "relation": "references",
       "why": "crosses file types (doc \u2194 code); connects across different repos/directories; peripheral node `Review Deck Hook Tests` unexpectedly reaches hub `Project Status - Pamout`"
-    },
-    {
-      "source": "Project Status - Pamout",
-      "target": "AI Coach Service",
-      "source_files": [
-        "STATUS.md",
-        "src/services/aiCoachService.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "crosses file types (doc \u2194 code); connects across different repos/directories; peripheral node `AI Coach Service` unexpectedly reaches hub `Project Status - Pamout`"
     },
     {
       "source": "Project Status - Pamout",
@@ -344,7 +352,7 @@
     }
   ],
   "tokens": {
-    "input": 13847,
-    "output": 2945
+    "input": 9400,
+    "output": 552
   }
 }

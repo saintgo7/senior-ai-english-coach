@@ -279,7 +279,7 @@
       "source_file": "public/service-worker.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 11,
+      "community": 12,
       "norm_label": "service-worker.js",
       "id": "public_service_worker"
     },
@@ -289,7 +289,7 @@
       "source_file": "public/service-worker.js",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 11,
+      "community": 12,
       "norm_label": "app_shell",
       "id": "public_service_worker_app_shell"
     },
@@ -349,7 +349,7 @@
       "source_file": "src/components/LessonBrief.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "lessonbrief.tsx",
       "id": "components_lessonbrief"
     },
@@ -359,7 +359,7 @@
       "source_file": "src/components/LessonBrief.tsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "lessonbrief()",
       "id": "components_lessonbrief_lessonbrief"
     },
@@ -459,7 +459,7 @@
       "source_file": "src/data/scenarios.test.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "norm_label": "scenarios.test.ts",
       "id": "data_scenarios_test"
     },
@@ -489,7 +489,7 @@
       "source_file": "src/data/scenarios.ts",
       "source_location": "L287",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "norm_label": "scenarios",
       "id": "data_scenarios_scenarios"
     },
@@ -499,7 +499,7 @@
       "source_file": "src/data/scenarios.ts",
       "source_location": "L310",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "norm_label": "getscenariobyid()",
       "id": "data_scenarios_getscenariobyid"
     },
@@ -529,7 +529,7 @@
       "source_file": "src/data/scenarios/business-hr.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 3,
       "norm_label": "business-hr.ts",
       "id": "scenarios_business_hr"
     },
@@ -539,7 +539,7 @@
       "source_file": "src/data/scenarios/business-hr.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 12,
+      "community": 3,
       "norm_label": "businesshrscenarios",
       "id": "scenarios_business_hr_businesshrscenarios"
     },
@@ -549,7 +549,7 @@
       "source_file": "src/data/scenarios/business-meetings.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 5,
       "norm_label": "business-meetings.ts",
       "id": "scenarios_business_meetings"
     },
@@ -559,7 +559,7 @@
       "source_file": "src/data/scenarios/business-meetings.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 3,
+      "community": 5,
       "norm_label": "businessmeetingsscenarios",
       "id": "scenarios_business_meetings_businessmeetingsscenarios"
     },
@@ -569,7 +569,7 @@
       "source_file": "src/data/scenarios/daily-community.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 13,
+      "community": 3,
       "norm_label": "daily-community.ts",
       "id": "scenarios_daily_community"
     },
@@ -579,7 +579,7 @@
       "source_file": "src/data/scenarios/daily-community.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 13,
+      "community": 3,
       "norm_label": "dailycommunityscenarios",
       "id": "scenarios_daily_community_dailycommunityscenarios"
     },
@@ -589,7 +589,7 @@
       "source_file": "src/data/scenarios/daily-finance.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 14,
       "norm_label": "daily-finance.ts",
       "id": "scenarios_daily_finance"
     },
@@ -599,7 +599,7 @@
       "source_file": "src/data/scenarios/daily-finance.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 3,
+      "community": 14,
       "norm_label": "dailyfinancescenarios",
       "id": "scenarios_daily_finance_dailyfinancescenarios"
     },
@@ -609,7 +609,7 @@
       "source_file": "src/data/scenarios/daily-health.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 15,
       "norm_label": "daily-health.ts",
       "id": "scenarios_daily_health"
     },
@@ -619,7 +619,7 @@
       "source_file": "src/data/scenarios/daily-health.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 14,
+      "community": 15,
       "norm_label": "dailyhealthscenarios",
       "id": "scenarios_daily_health_dailyhealthscenarios"
     },
@@ -629,7 +629,7 @@
       "source_file": "src/data/scenarios/daily-social.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 16,
       "norm_label": "daily-social.ts",
       "id": "scenarios_daily_social"
     },
@@ -639,7 +639,7 @@
       "source_file": "src/data/scenarios/daily-social.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 6,
+      "community": 16,
       "norm_label": "dailysocialscenarios",
       "id": "scenarios_daily_social_dailysocialscenarios"
     },
@@ -649,7 +649,7 @@
       "source_file": "src/data/scenarios/it-agile.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 7,
+      "community": 13,
       "norm_label": "it-agile.ts",
       "id": "scenarios_it_agile"
     },
@@ -659,7 +659,7 @@
       "source_file": "src/data/scenarios/it-agile.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 7,
+      "community": 13,
       "norm_label": "itagilescenarios",
       "id": "scenarios_it_agile_itagilescenarios"
     },
@@ -689,7 +689,7 @@
       "source_file": "src/data/scenarios/it-code.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "norm_label": "it-code.ts",
       "id": "scenarios_it_code"
     },
@@ -699,7 +699,7 @@
       "source_file": "src/data/scenarios/it-code.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "norm_label": "itcodescenarios",
       "id": "scenarios_it_code_itcodescenarios"
     },
@@ -709,7 +709,7 @@
       "source_file": "src/data/scenarios/it-devops.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 5,
       "norm_label": "it-devops.ts",
       "id": "scenarios_it_devops"
     },
@@ -719,7 +719,7 @@
       "source_file": "src/data/scenarios/it-devops.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 3,
+      "community": 5,
       "norm_label": "itdevopsscenarios",
       "id": "scenarios_it_devops_itdevopsscenarios"
     },
@@ -729,7 +729,7 @@
       "source_file": "src/data/scenarios/it-incident.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 7,
+      "community": 3,
       "norm_label": "it-incident.ts",
       "id": "scenarios_it_incident"
     },
@@ -739,7 +739,7 @@
       "source_file": "src/data/scenarios/it-incident.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 7,
+      "community": 3,
       "norm_label": "itincidentscenarios",
       "id": "scenarios_it_incident_itincidentscenarios"
     },
@@ -749,7 +749,7 @@
       "source_file": "src/data/scenarios/it-interview.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 15,
+      "community": 17,
       "norm_label": "it-interview.ts",
       "id": "scenarios_it_interview"
     },
@@ -759,7 +759,7 @@
       "source_file": "src/data/scenarios/it-interview.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 15,
+      "community": 17,
       "norm_label": "itinterviewscenarios",
       "id": "scenarios_it_interview_itinterviewscenarios"
     },
@@ -769,7 +769,7 @@
       "source_file": "src/data/scenarios/it-leadership.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 16,
+      "community": 18,
       "norm_label": "it-leadership.ts",
       "id": "scenarios_it_leadership"
     },
@@ -779,7 +779,7 @@
       "source_file": "src/data/scenarios/it-leadership.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 16,
+      "community": 18,
       "norm_label": "itleadershipscenarios",
       "id": "scenarios_it_leadership_itleadershipscenarios"
     },
@@ -789,7 +789,7 @@
       "source_file": "src/data/scenarios/it-product.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 19,
       "norm_label": "it-product.ts",
       "id": "scenarios_it_product"
     },
@@ -799,7 +799,7 @@
       "source_file": "src/data/scenarios/it-product.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 17,
+      "community": 19,
       "norm_label": "itproductscenarios",
       "id": "scenarios_it_product_itproductscenarios"
     },
@@ -809,7 +809,7 @@
       "source_file": "src/data/scenarios/it-remote.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 20,
       "norm_label": "it-remote.ts",
       "id": "scenarios_it_remote"
     },
@@ -819,7 +819,7 @@
       "source_file": "src/data/scenarios/it-remote.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 6,
+      "community": 20,
       "norm_label": "itremotescenarios",
       "id": "scenarios_it_remote_itremotescenarios"
     },
@@ -829,7 +829,7 @@
       "source_file": "src/data/scenarios/travel-culture.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 7,
+      "community": 3,
       "norm_label": "travel-culture.ts",
       "id": "scenarios_travel_culture"
     },
@@ -839,7 +839,7 @@
       "source_file": "src/data/scenarios/travel-culture.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 7,
+      "community": 3,
       "norm_label": "travelculturescenarios",
       "id": "scenarios_travel_culture_travelculturescenarios"
     },
@@ -849,7 +849,7 @@
       "source_file": "src/data/scenarios/travel-emergency.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 18,
+      "community": 7,
       "norm_label": "travel-emergency.ts",
       "id": "scenarios_travel_emergency"
     },
@@ -859,7 +859,7 @@
       "source_file": "src/data/scenarios/travel-emergency.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 18,
+      "community": 7,
       "norm_label": "travelemergencyscenarios",
       "id": "scenarios_travel_emergency_travelemergencyscenarios"
     },
@@ -869,7 +869,7 @@
       "source_file": "src/data/scenarios/travel-transit.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 5,
       "norm_label": "travel-transit.ts",
       "id": "scenarios_travel_transit"
     },
@@ -879,7 +879,7 @@
       "source_file": "src/data/scenarios/travel-transit.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 3,
+      "community": 5,
       "norm_label": "traveltransitscenarios",
       "id": "scenarios_travel_transit_traveltransitscenarios"
     },
@@ -919,7 +919,7 @@
       "source_file": "src/domain/types.ts",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "scenario",
       "id": "domain_types_scenario"
     },
@@ -1079,7 +1079,7 @@
       "source_file": "src/test/setup.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 9,
+      "community": 10,
       "norm_label": "setup.ts",
       "id": "test_setup"
     },
@@ -1089,7 +1089,7 @@
       "source_file": "src/test/setup.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 9,
+      "community": 10,
       "norm_label": "storage",
       "id": "test_setup_storage"
     },
@@ -1099,7 +1099,7 @@
       "source_file": "src/test/setup.ts",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 9,
+      "community": 10,
       "norm_label": "length()",
       "id": "test_setup_length"
     },
@@ -1309,7 +1309,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 10,
+      "community": 11,
       "norm_label": "tsconfig.json",
       "id": "tsconfig"
     },
@@ -1319,7 +1319,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 10,
+      "community": 11,
       "norm_label": "files",
       "id": "tsconfig_files"
     },
@@ -1329,7 +1329,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 10,
+      "community": 11,
       "norm_label": "references",
       "id": "tsconfig_references"
     },
@@ -1469,7 +1469,7 @@
       "source_file": "vite.config.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 25,
       "norm_label": "vite.config.ts",
       "id": "vite_config"
     },
@@ -1482,7 +1482,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 9,
       "norm_label": "senior ai english coach",
       "id": "readme_senior_ai_english_coach"
     },
@@ -1495,7 +1495,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "project status - pamout",
       "id": "status_senior_ai_english_coach"
     },
@@ -1508,7 +1508,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 24,
       "norm_label": "main html entry",
       "id": "index_html"
     },
@@ -1521,7 +1521,7 @@
       "captured_at": null,
       "author": "saintgo7",
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "dev log #001: scenario expansion",
       "id": "dev_log_001_scenario_expansion"
     },
@@ -1534,7 +1534,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 9,
       "norm_label": "ai coach service",
       "id": "services_ai_coach_service"
     },
@@ -1547,7 +1547,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "app integration tests",
       "id": "app_test"
     },
@@ -1560,7 +1560,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "review deck hook tests",
       "id": "hooks_use_review_deck_test"
     },
@@ -1573,7 +1573,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "ai coach service tests",
       "id": "services_ai_coach_service_test"
     },
@@ -1586,7 +1586,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 9,
       "norm_label": "/api/coach/practice-turn",
       "id": "api_coach_practice_turn"
     },
@@ -1599,7 +1599,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 19,
+      "community": 21,
       "norm_label": "editorial mockup ui",
       "id": "img_editorial_mockup"
     },
@@ -1612,7 +1612,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 22,
       "norm_label": "neobrutalism mockup ui",
       "id": "img_neobrutalism_mockup"
     },
@@ -1625,9 +1625,35 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 23,
       "norm_label": "slate mockup ui",
       "id": "img_slate_mockup"
+    },
+    {
+      "label": "App Component",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "app component",
+      "id": "test_result_app"
+    },
+    {
+      "label": "Testing Library",
+      "file_type": "code",
+      "source_file": "node_modules/@testing-library/dom",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "testing library",
+      "id": "test_result_testing_library"
     }
   ],
   "links": [
@@ -1911,6 +1937,26 @@
       "confidence_score": 1.0,
       "source": "src_app_test",
       "target": "src_app"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "test-result.txt",
+      "source_location": "src/App.test.tsx",
+      "weight": 1.0,
+      "source": "src_app_test",
+      "target": "test_result_app"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "test-result.txt",
+      "source_location": "src/App.test.tsx:21:29",
+      "weight": 1.0,
+      "source": "src_app_test",
+      "target": "test_result_testing_library"
     },
     {
       "relation": "imports_from",
@@ -4232,5 +4278,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c9b8a571d86a7d8e9d766a145a2f70c1b112f143"
+  "built_at_commit": "d872f7c2c46c8f0353ef75df94a4e3651b2aaa94"
 }
