@@ -2,3 +2,5 @@
 graph.html
 cache/
 2026-*/
+# 로컬 .bkit 파일 경로 메타데이터가 들어가므로 추적 제외 (codex 리뷰 지적)
+manifest.json
