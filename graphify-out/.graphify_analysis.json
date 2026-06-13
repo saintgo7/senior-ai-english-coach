@@ -1,0 +1,350 @@
+{
+  "communities": {
+    "0": [
+      "components_coursetimer",
+      "components_coursetimer_coursetimer",
+      "components_nativerewritepanel",
+      "components_nativerewritepanel_nativerewritepanel",
+      "components_practiceroom",
+      "components_practiceroom_practiceroom",
+      "components_reviewdeck",
+      "components_reviewdeck_reviewdeck",
+      "components_scenariopicker",
+      "components_scenariopicker_categorylabels",
+      "components_scenariopicker_scenariopicker",
+      "domain_types_practiceturnfeedback",
+      "domain_types_practiceturninput",
+      "domain_types_reviewcard",
+      "hooks_usereviewdeck",
+      "hooks_usereviewdeck_newreviewcard",
+      "hooks_usereviewdeck_readstoredcards",
+      "hooks_usereviewdeck_test",
+      "hooks_usereviewdeck_usereviewdeck",
+      "services_aicoachservice",
+      "services_aicoachservice_aicoachprovider",
+      "services_aicoachservice_createaicoachservice",
+      "services_aicoachservice_createhttpaicoachprovider",
+      "services_aicoachservice_createmockaicoachprovider",
+      "services_aicoachservice_test",
+      "src_app",
+      "src_app_app",
+      "src_app_test",
+      "src_main"
+    ],
+    "1": [
+      "package",
+      "package_devdependencies",
+      "package_devdependencies_jsdom",
+      "package_devdependencies_testing_library_jest_dom",
+      "package_devdependencies_testing_library_react",
+      "package_devdependencies_testing_library_user_event",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_vitest",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_preview",
+      "package_scripts_test",
+      "package_scripts_test_watch",
+      "package_type",
+      "package_version"
+    ],
+    "2": [
+      "tsconfig_app",
+      "tsconfig_app_compileroptions",
+      "tsconfig_app_compileroptions_allowjs",
+      "tsconfig_app_compileroptions_allowsyntheticdefaultimports",
+      "tsconfig_app_compileroptions_esmoduleinterop",
+      "tsconfig_app_compileroptions_forceconsistentcasinginfilenames",
+      "tsconfig_app_compileroptions_isolatedmodules",
+      "tsconfig_app_compileroptions_jsx",
+      "tsconfig_app_compileroptions_lib",
+      "tsconfig_app_compileroptions_module",
+      "tsconfig_app_compileroptions_moduleresolution",
+      "tsconfig_app_compileroptions_noemit",
+      "tsconfig_app_compileroptions_resolvejsonmodule",
+      "tsconfig_app_compileroptions_skiplibcheck",
+      "tsconfig_app_compileroptions_strict",
+      "tsconfig_app_compileroptions_target",
+      "tsconfig_app_compileroptions_tsbuildinfofile",
+      "tsconfig_app_compileroptions_types",
+      "tsconfig_app_compileroptions_usedefineforclassfields",
+      "tsconfig_app_include"
+    ],
+    "3": [
+      "data_scenarios",
+      "data_scenarios_corescenarios",
+      "scenarios_business_hr",
+      "scenarios_business_hr_businesshrscenarios",
+      "scenarios_business_meetings",
+      "scenarios_business_meetings_businessmeetingsscenarios",
+      "scenarios_daily_finance",
+      "scenarios_daily_finance_dailyfinancescenarios",
+      "scenarios_it_client",
+      "scenarios_it_client_itclientscenarios",
+      "scenarios_it_devops",
+      "scenarios_it_devops_itdevopsscenarios",
+      "scenarios_travel_transit",
+      "scenarios_travel_transit_traveltransitscenarios"
+    ],
+    "4": [
+      "tsconfig_node",
+      "tsconfig_node_compileroptions",
+      "tsconfig_node_compileroptions_allowsyntheticdefaultimports",
+      "tsconfig_node_compileroptions_lib",
+      "tsconfig_node_compileroptions_module",
+      "tsconfig_node_compileroptions_moduleresolution",
+      "tsconfig_node_compileroptions_noemit",
+      "tsconfig_node_compileroptions_skiplibcheck",
+      "tsconfig_node_compileroptions_strict",
+      "tsconfig_node_compileroptions_target",
+      "tsconfig_node_compileroptions_tsbuildinfofile",
+      "tsconfig_node_compileroptions_types",
+      "tsconfig_node_include"
+    ],
+    "5": [
+      "api_coach_practice_turn",
+      "app_test",
+      "data_scenarios_getscenariobyid",
+      "data_scenarios_scenarios",
+      "data_scenarios_test",
+      "dev_log_001_scenario_expansion",
+      "hooks_use_review_deck_test",
+      "readme_senior_ai_english_coach",
+      "services_ai_coach_service",
+      "services_ai_coach_service_test",
+      "status_senior_ai_english_coach"
+    ],
+    "6": [
+      "components_lessonbrief",
+      "components_lessonbrief_lessonbrief",
+      "domain_types_scenario",
+      "scenarios_daily_social",
+      "scenarios_daily_social_dailysocialscenarios",
+      "scenarios_it_code",
+      "scenarios_it_code_itcodescenarios",
+      "scenarios_it_remote",
+      "scenarios_it_remote_itremotescenarios"
+    ],
+    "7": [
+      "domain_types",
+      "domain_types_lessonterm",
+      "domain_types_scenariocategory",
+      "scenarios_it_agile",
+      "scenarios_it_agile_itagilescenarios",
+      "scenarios_it_incident",
+      "scenarios_it_incident_itincidentscenarios",
+      "scenarios_travel_culture",
+      "scenarios_travel_culture_travelculturescenarios"
+    ],
+    "8": [
+      "package_dependencies",
+      "package_dependencies_lucide_react",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_typescript",
+      "package_dependencies_vite",
+      "package_dependencies_vitejs_plugin_react"
+    ],
+    "9": [
+      "test_setup",
+      "test_setup_length",
+      "test_setup_storage"
+    ],
+    "10": [
+      "tsconfig",
+      "tsconfig_files",
+      "tsconfig_references"
+    ],
+    "11": [
+      "public_service_worker",
+      "public_service_worker_app_shell"
+    ],
+    "12": [
+      "scenarios_business_client",
+      "scenarios_business_client_businessclientscenarios"
+    ],
+    "13": [
+      "scenarios_daily_community",
+      "scenarios_daily_community_dailycommunityscenarios"
+    ],
+    "14": [
+      "scenarios_daily_health",
+      "scenarios_daily_health_dailyhealthscenarios"
+    ],
+    "15": [
+      "scenarios_it_interview",
+      "scenarios_it_interview_itinterviewscenarios"
+    ],
+    "16": [
+      "scenarios_it_leadership",
+      "scenarios_it_leadership_itleadershipscenarios"
+    ],
+    "17": [
+      "scenarios_it_product",
+      "scenarios_it_product_itproductscenarios"
+    ],
+    "18": [
+      "scenarios_travel_emergency",
+      "scenarios_travel_emergency_travelemergencyscenarios"
+    ],
+    "19": [
+      "img_editorial_mockup"
+    ],
+    "20": [
+      "img_neobrutalism_mockup"
+    ],
+    "21": [
+      "img_slate_mockup"
+    ],
+    "22": [
+      "index_html"
+    ],
+    "23": [
+      "vite_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.11330049261083744,
+    "1": 0.1,
+    "2": 0.1,
+    "3": 0.2087912087912088,
+    "4": 0.15384615384615385,
+    "5": 0.2,
+    "6": 0.2222222222222222,
+    "7": 0.2222222222222222,
+    "8": 0.2857142857142857,
+    "9": 0.6666666666666666,
+    "10": 0.6666666666666666,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0
+  },
+  "gods": [
+    {
+      "id": "domain_types_scenario",
+      "label": "Scenario",
+      "degree": 25
+    },
+    {
+      "id": "tsconfig_app_compileroptions",
+      "label": "compilerOptions",
+      "degree": 18
+    },
+    {
+      "id": "tsconfig_node_compileroptions",
+      "label": "compilerOptions",
+      "degree": 11
+    },
+    {
+      "id": "status_senior_ai_english_coach",
+      "label": "Project Status - Pamout",
+      "degree": 7
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 6
+    },
+    {
+      "id": "domain_types_practiceturnfeedback",
+      "label": "PracticeTurnFeedback",
+      "degree": 5
+    },
+    {
+      "id": "hooks_usereviewdeck_usereviewdeck",
+      "label": "useReviewDeck()",
+      "degree": 4
+    },
+    {
+      "id": "dev_log_001_scenario_expansion",
+      "label": "Dev Log #001: Scenario Expansion",
+      "degree": 4
+    },
+    {
+      "id": "data_scenarios_scenarios",
+      "label": "scenarios",
+      "degree": 3
+    },
+    {
+      "id": "domain_types_reviewcard",
+      "label": "ReviewCard",
+      "degree": 3
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Project Status - Pamout",
+      "target": "App Integration Tests",
+      "source_files": [
+        "STATUS.md",
+        "src/App.test.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc \u2194 code); connects across different repos/directories; peripheral node `App Integration Tests` unexpectedly reaches hub `Project Status - Pamout`"
+    },
+    {
+      "source": "Project Status - Pamout",
+      "target": "Review Deck Hook Tests",
+      "source_files": [
+        "STATUS.md",
+        "src/hooks/useReviewDeck.test.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc \u2194 code); connects across different repos/directories; peripheral node `Review Deck Hook Tests` unexpectedly reaches hub `Project Status - Pamout`"
+    },
+    {
+      "source": "Project Status - Pamout",
+      "target": "AI Coach Service",
+      "source_files": [
+        "STATUS.md",
+        "src/services/aiCoachService.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc \u2194 code); connects across different repos/directories; peripheral node `AI Coach Service` unexpectedly reaches hub `Project Status - Pamout`"
+    },
+    {
+      "source": "Project Status - Pamout",
+      "target": "AI Coach Service Tests",
+      "source_files": [
+        "STATUS.md",
+        "src/services/aiCoachService.test.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc \u2194 code); connects across different repos/directories; peripheral node `AI Coach Service Tests` unexpectedly reaches hub `Project Status - Pamout`"
+    },
+    {
+      "source": "Dev Log #001: Scenario Expansion",
+      "target": "App Integration Tests",
+      "source_files": [
+        "docs/dev-log/001_scenario_expansion_500_it_category_20260524_2331.md",
+        "src/App.test.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc \u2194 code); connects across different repos/directories"
+    }
+  ],
+  "tokens": {
+    "input": 13847,
+    "output": 2945
+  }
+}

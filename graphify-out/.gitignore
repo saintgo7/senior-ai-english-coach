@@ -1,0 +1,4 @@
+# 대용량/재생성 가능한 graphify 산출물은 추적 제외 (보고서·그래프 JSON만 유지)
+graph.html
+cache/
+2026-*/
