@@ -71,6 +71,11 @@ export function PracticeRoom({
       };
 
       setRecognition(rec);
+
+      // Release the microphone if the component unmounts mid-recognition
+      return () => {
+        rec.abort();
+      };
     }
   }, []);
 
