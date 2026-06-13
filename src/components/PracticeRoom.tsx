@@ -72,8 +72,14 @@ export function PracticeRoom({
 
       setRecognition(rec);
 
-      // Release the microphone if the component unmounts mid-recognition
+      // Release the microphone if the component unmounts mid-recognition.
+      // Detach handlers first so the abort-triggered end/error events do not
+      // call setState on an unmounted component.
       return () => {
+        rec.onstart = null;
+        rec.onresult = null;
+        rec.onerror = null;
+        rec.onend = null;
         rec.abort();
       };
     }
