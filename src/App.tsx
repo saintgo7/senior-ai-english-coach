@@ -10,6 +10,10 @@ import type { PracticeTurnFeedback, Scenario } from './domain/types';
 import { useReviewDeck } from './hooks/useReviewDeck';
 import { createAiCoachService, createMockAiCoachProvider } from './services/aiCoachService';
 
+// 오프라인 PWA에서도 깨지지 않도록 인라인 SVG data URI로 제공하는 기본 프로필 아바타
+const PROFILE_AVATAR =
+  "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Crect%20width='96'%20height='96'%20rx='48'%20fill='%2312343b'/%3E%3Ccircle%20cx='48'%20cy='38'%20r='18'%20fill='%23f5f1e8'/%3E%3Cpath%20d='M20%2084c0-15.5%2012.5-28%2028-28s28%2012.5%2028%2028z'%20fill='%23f5f1e8'/%3E%3C/svg%3E";
+
 export default function App() {
   const [selectedScenario, setSelectedScenario] = useState<Scenario>(scenarios[1]);
   const [feedback, setFeedback] = useState<PracticeTurnFeedback | null>(null);
@@ -52,7 +56,7 @@ export default function App() {
             <div className="sidebar-footer">
               <div className="profile-info">
                 <div className="profile-avatar">
-                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB930q4es3Gu0EOgb2B9eXOc6fMaxcaJDAv1AwnBEWj2MxlBGV2SLd49938DRYuU4rno2CHutj5UGbbPLVOXcsV73pxm-jIfqRznEueBwDCa58EKkvZxjA66oA0O8wxJ82Q7R3gyGx1Z1w0bszqnDhX2akskJ2ak04fVS_cSkElNjqkMoCGVX8xyJpx0GB-5blVeeNH0TF-q84JurWgfwUKkpgI-RlB6kDG26MJrnjoNXUc_DYoYQkOOv8i_IHCdZNMCojY_gAA4aWO" alt="User profile avatar" />
+                  <img src={PROFILE_AVATAR} alt="User profile avatar" />
                 </div>
                 <div className="profile-meta">
                   <span className="profile-name">Arthur</span>

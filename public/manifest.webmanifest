@@ -6,5 +6,18 @@
   "display": "standalone",
   "background_color": "#f5f1e8",
   "theme_color": "#12343b",
-  "icons": []
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
 }
