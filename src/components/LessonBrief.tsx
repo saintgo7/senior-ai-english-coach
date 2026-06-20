@@ -1,15 +1,27 @@
 import type { Scenario } from '../domain/types';
 
+// getVoices() is loaded asynchronously in Chrome/Edge and returns [] until the
+// 'voiceschanged' event fires. Cache the list and refresh it on that event so
+// the first playback can still pick an English voice instead of the default.
+let cachedVoices: SpeechSynthesisVoice[] = [];
+if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  const refreshVoices = () => {
+    cachedVoices = window.speechSynthesis.getVoices();
+  };
+  refreshVoices();
+  window.speechSynthesis.addEventListener('voiceschanged', refreshVoices);
+}
+
 export function LessonBrief({ scenario }: { scenario: Scenario }) {
   function handlePlayAudio(text: string) {
     if ('speechSynthesis' in window) {
       // Cancel previous speech to prevent overlapping sounds
       window.speechSynthesis.cancel();
-      
+
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
-      
-      const voices = window.speechSynthesis.getVoices();
+
+      const voices = cachedVoices.length ? cachedVoices : window.speechSynthesis.getVoices();
       
       // Prioritize clear, premium natural-sounding voices (e.g., Samantha, Google US, premium assistants)
       const idealVoice = voices.find(
