@@ -1,0 +1,188 @@
+{
+ "project": "eng-coach",
+ "dir": "senior-ai-english-coach",
+ "findings": [
+  {
+   "severity": "high",
+   "title": "NativeRewritePanel renders hardcoded sentences, not the user's actual input or the AI's actual rewrite",
+   "description": "src/components/NativeRewritePanel.tsx renderOriginal()/renderNative() ignore the real text and emit fixed JSX based on substring sniffing. renderOriginal() returns the literal 'I want to change my appointment time.' whenever originalSentence merely *includes* the word 'change' (lines 14-18) — so a learner who types e.g. 'I need to change my flight to Boston' sees their draft rewritten to an unrelated sentence about an appointment. renderNative() similarly hardcodes 3 phrases (reschedule / see your point / aisle seat) that exactly match the 3 canned mock replies. This 'editorial diff highlight' only ever works for the mock; with a real /api/coach backend the highlighting silently never triggers and the appointment-substitution bug remains. This is placeholder logic presented as a real correction sheet.",
+   "file": "src/components/NativeRewritePanel.tsx:12-55",
+   "confidence": "high",
+   "severity_reason": "shows incorrect content to the user under normal use",
+   "recommendation": "Remove the hardcoded renderOriginal/renderNative branches and render originalSentence and feedback.nativeRewrite directly. If word-level diff highlighting is desired, compute it from the two strings (e.g. a token diff) instead of substring matching. The 'disagree' branch (line 21) is also dead code — the mock never returns it.",
+   "fixable": "needs-review",
+   "dimension": "INCOMPLETE"
+  },
+  {
+   "severity": "high",
+   "title": "NativeRewritePanel overwrites the learner's draft and the AI rewrite with hardcoded canned text via substring matching",
+   "description": "renderOriginal() checks originalSentence.includes('change') and renders a fixed JSX string 'I want to change my appointment time.' regardless of what the learner actually typed. Any sentence containing the substring 'change' (e.g. 'Can I change the meeting room?' or 'Loose change is heavy') is replaced by this unrelated sentence. The same applies to 'disagree' (renders 'I disagree your idea.'). renderNative() likewise replaces feedback.nativeRewrite with hardcoded multi-clause sentences whenever the rewrite contains 'reschedule', 'see your point', or 'aisle seat'. For a language-coaching tool this is a correctness bug: the 'Draft' box can show a sentence the user never wrote, and the 'Polished Draft' box can show a correction the AI never returned, misleading the learner about their own input and the actual feedback.",
+   "file": "src/components/NativeRewritePanel.tsx:13-55",
+   "confidence": "high",
+   "severity_note": "",
+   "recommendation": "Remove the hardcoded substring branches and render the real props directly (display originalSentence as-is, and feedback.nativeRewrite as-is). If word-diff highlighting is desired, compute it generically from the two strings instead of pattern-matching specific keywords.",
+   "fixable": "auto",
+   "dimension": "BUGS"
+  },
+  {
+   "severity": "medium",
+   "title": "CourseTimer is entirely static fake data (progress steps + 7-day streak + '45m left')",
+   "description": "src/components/CourseTimer.tsx hardcodes a 4-step agenda with fixed statuses ('vocab' completed, 'roleplay' active, etc.) and a streak widget reading '7일 연속 학습 중 / 7 Days Streak • 45m left'. None of it derives from state, props, or real activity — it never changes regardless of what the learner does. For a senior-learning product this presents fabricated engagement/progress metrics as real. The component name 'CourseTimer' is also misleading: nothing is timed.",
+   "file": "src/components/CourseTimer.tsx:4-44",
+   "confidence": "high",
+   "recommendation": "Either drive the step statuses and streak from real session state (e.g. derive 'active' step from app flow, count saved review cards, persist a streak in localStorage) or relabel the widget as a static demo/sample so it is not presented as the learner's actual streak. At minimum remove the fixed '45m left' / '7 Days Streak' numbers.",
+   "fixable": "needs-review",
+   "dimension": "INCOMPLETE"
+  },
+  {
+   "severity": "medium",
+   "title": "Real AI integration is absent; app ships on a 3-reply mock provider only",
+   "description": "src/App.tsx:17 hardwires createMockAiCoachProvider(). createMockAiCoachProvider (src/services/aiCoachService.ts:18-60) returns one of only 4 canned feedback objects (empty / business / travel / default), so every one of the 496 scenarios maps to at most 3 distinct coach replies regardless of what the learner writes. createHttpAiCoachProvider (line 62) posts to /api/coach/practice-turn but no such backend exists in the repo and App never wires it. The core value proposition (AI coaching) is therefore a stub.",
+   "file": "src/services/aiCoachService.ts:18-78",
+   "confidence": "high",
+   "recommendation": "Implement the /api/coach/practice-turn backend (key kept server-side per the existing design) and switch App to createHttpAiCoachProvider behind an env flag, falling back to mock for offline/demo. Document clearly in UI that it is a demo while mock is active.",
+   "fixable": "needs-review",
+   "dimension": "INCOMPLETE"
+  },
+  {
+   "severity": "medium",
+   "title": "PWA offline support is effectively non-functional despite manifest + service worker",
+   "description": "public/service-worker.js pre-caches only ['/', '/manifest.webmanifest'] (APP_SHELL) and uses a network-first fetch handler that falls back to caches.match. The hashed JS/CSS bundles produced by Vite, the Google Fonts, the Material Symbols font, and the external avatar are never added to the cache, so when offline the cached '/' shell references assets that are not cached and the app will not boot reliably. STATUS.md itself flags offline behavior as unverified. So the 'offline PWA' claim is aspirational, not delivered.",
+   "file": "public/service-worker.js:2",
+   "confidence": "high",
+   "recommendation": "Use a build-time precache (e.g. vite-plugin-pwa/Workbox) to cache the emitted bundle assets, or have the SW cache-on-fetch successful GETs (stale-while-revalidate). Verify offline boot against the real dist build.",
+   "fixable": "needs-review",
+   "dimension": "INCOMPLETE"
+  },
+  {
+   "severity": "medium",
+   "title": "Web Speech getVoices() race: voice selection can fail on first audio playback",
+   "description": "handlePlayAudio calls window.speechSynthesis.getVoices() synchronously. In Chrome/Edge the voice list is loaded asynchronously and returns an empty array until the 'voiceschanged' event fires. On the first click (before voices load) idealVoice is undefined and utterance.voice is never set, so the wrong/default system voice (possibly non-English) is used for pronunciation practice. There is no onvoiceschanged listener to retry or cache voices.",
+   "file": "src/components/LessonBrief.tsx:12-28",
+   "confidence": "medium",
+   "recommendation": "Subscribe to speechSynthesis.onvoiceschanged to populate/cache voices, and if getVoices() returns empty, defer speaking until voices are available (or accept the default for that first utterance). At minimum guard for the empty-array case.",
+   "fixable": "needs-review",
+   "dimension": "BUGS"
+  },
+  {
+   "severity": "low",
+   "title": "No Content-Security-Policy and reliance on Google Fonts CDN",
+   "description": "index.html sets no CSP meta tag/header and loads CSS from https://fonts.googleapis.com. For a static SPA with no inline scripts and React's auto-escaping this is not currently exploitable, but a CSP would harden against any future XSS regression and the external CDN is a third-party dependency. This is defense-in-depth only; there is no concrete vulnerability tied to it in the current code.",
+   "file": "index.html:7",
+   "fixable": "needs-review",
+   "confidence": "high",
+   "recommendation": "Optionally add a restrictive CSP (e.g. default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self') via the hosting layer/meta tag, and consider self-hosting fonts. Not a blocker.",
+   "dimension": "SECURITY"
+  },
+  {
+   "severity": "low",
+   "title": "Icon UI silently breaks if Material Symbols CDN font is blocked/offline",
+   "description": "Components (LessonBrief, NativeRewritePanel, PracticeRoom) render UI affordances via <span className=\"material-symbols-outlined\">...</span>, and the font is loaded only from fonts.googleapis.com in index.html. This is a PWA explicitly targeting senior learners with offline support (service-worker.js, manifest). When the CDN is unreachable or the device is offline, the icon glyphs fall back to raw ligature TEXT (e.g. the literal word for the icon) rather than icons, degrading the UI for the exact offline scenario the app advertises. The service worker only caches '/' and '/manifest.webmanifest', so the font is never cached.",
+   "file": "index.html:9",
+   "fixable": "needs-review",
+   "recommendation": "Self-host the Material Symbols (and Lora/Outfit/Noto) fonts under /public and reference them locally, or add them to the service-worker APP_SHELL cache list, so icons render offline.",
+   "confidence": "high",
+   "dimension": "RUNTIME"
+  },
+  {
+   "severity": "low",
+   "title": "Hardcoded external Google avatar URL breaks offline / will eventually 404",
+   "description": "App.tsx renders a user avatar from a fixed https://lh3.googleusercontent.com/aida-public/... URL. This is an opaque CDN asset (likely an AI-mockup export) with no fallback. It will not load offline (contradicting the PWA goal) and such transient googleusercontent URLs can expire, leaving a broken image. Not a crash, but a visible runtime rendering defect.",
+   "file": "src/App.tsx:55",
+   "fixable": "auto",
+   "recommendation": "Replace with a local placeholder asset in /public or an inline SVG/initials avatar; add alt fallback styling. Safe to fix in a staging copy.",
+   "confidence": "high",
+   "dimension": "RUNTIME"
+  },
+  {
+   "severity": "low",
+   "title": "Single ~1.42 MB JS chunk (all 496 scenarios inlined) — slow first load on low-end devices",
+   "description": "Production build emits one chunk dist/assets/index-*.js at 1,419.78 kB (gzip 435.21 kB), exceeding Vite's 500 kB advisory. All 19 scenario data files (~496 scenarios) are statically imported and spread into one array in src/data/scenarios.ts, so the entire dataset ships in the initial bundle. Build succeeds (warning only), but first-load is heavy for the senior / low-spec target audience.",
+   "file": "src/data/scenarios.ts:1",
+   "fixable": "needs-review",
+   "recommendation": "Lazy-load scenario categories via dynamic import() or configure build.rollupOptions.output.manualChunks to split the scenario data out of the entry bundle.",
+   "confidence": "high",
+   "dimension": "RUNTIME"
+  },
+  {
+   "severity": "low",
+   "title": "5 npm audit vulnerabilities (3 high) in dev-only tooling",
+   "description": "`npm audit` reports 5 vulns (2 low, 3 high): vite/launch-editor (NTLMv2 hash disclosure & fs.deny bypass, Windows-only dev server), esbuild (arbitrary file read via dev server on Windows), ws (memory-exhaustion DoS), form-data (CRLF injection), @babel/core (file read via sourceMappingURL). All are in build/test tooling, not the shipped static runtime, and the high-severity ones are dev-server/Windows-specific. Does not affect 'can it run' but worth noting. All fixable via `npm audit fix`.",
+   "file": "package.json:13",
+   "fixable": "auto",
+   "recommendation": "Run `npm audit fix` and re-run `npm run build` + `npm test` to confirm green; impact is limited since these affect dev tooling, not production output.",
+   "confidence": "high",
+   "dimension": "RUNTIME"
+  },
+  {
+   "severity": "low",
+   "title": "Action icons depend on external Material Symbols font with no fallback — buttons show raw text 'mic'/'send'/'bookmark' if it fails",
+   "description": "index.html:9 loads Material Symbols from fonts.googleapis.com. The voice/send buttons (src/components/PracticeRoom.tsx:172,196) and the save-to-deck button (src/components/NativeRewritePanel.tsx:100) render the icon name as text inside <span class=\"material-symbols-outlined\">. If the font is blocked/offline (which is exactly the senior + offline-PWA target context noted in STATUS.md), the controls display the literal words 'mic', 'send', 'bookmark', 'auto_fix_high', etc. The send/save buttons have aria-labels (good) but the voice button uses only title=\"Voice Input\".",
+   "file": "src/components/PracticeRoom.tsx:166-175",
+   "confidence": "high",
+   "recommendation": "Self-host the icon font or swap to inline SVG icons (lucide-react is already a dependency and used nowhere else). Add an aria-label to the voice-input button. This also fixes the offline gap for these glyphs.",
+   "fixable": "needs-review",
+   "dimension": "INCOMPLETE"
+  },
+  {
+   "severity": "low",
+   "title": "Hardcoded external avatar URL for fake user 'Arthur / Intermediate'",
+   "description": "src/App.tsx:55 embeds a fixed lh3.googleusercontent.com avatar and shows a hardcoded profile name 'Arthur' / level 'Intermediate' (lines 58-59). There is no auth/user system, so this is placeholder profile data presented as a logged-in user, and the external image will break offline.",
+   "file": "src/App.tsx:55-60",
+   "confidence": "high",
+   "recommendation": "Replace with a local/placeholder avatar asset and either remove the fake name/level or label the area as a demo profile.",
+   "fixable": "auto",
+   "dimension": "INCOMPLETE"
+  },
+  {
+   "severity": "low",
+   "title": "Dead brand-logo link (href=\"#\") and lang/UI mismatch",
+   "description": "src/App.tsx:44 the 'Pamout' brand logo is an <a href=\"#\"> that goes nowhere (dead link / scroll-to-top no-op). Separately, index.html sets <html lang=\"ko\"> but the app is bilingual KO/EN throughout; screen readers will announce English content (scenario titles, coach replies, 'Type your English sentence here') under a Korean language context. Minor a11y/i18n inaccuracy.",
+   "file": "src/App.tsx:44",
+   "confidence": "high",
+   "recommendation": "Make the logo a non-interactive element (or link it to a real home route once routing exists). For the bilingual content, consider lang attributes on the English spans, or accept lang=ko as primary; low priority.",
+   "fixable": "auto",
+   "dimension": "INCOMPLETE"
+  },
+  {
+   "severity": "low",
+   "title": "Chat message IDs can collide across rapid turns (Date.now-based keys)",
+   "description": "submitTurn builds the user message id as 'user-' + Date.now() and the AI message id as 'ai-' + (Date.now() + 1). React keys must be unique within the list. Two submissions within the same millisecond (or fast async resolution) can produce colliding 'user-' ids, causing React reconciliation warnings and potential mis-rendering of the chat history. The 'ai-' id derives from a second Date.now() call, so it is not deterministically one greater than the matching user id either.",
+   "file": "src/components/PracticeRoom.tsx:95,107",
+   "confidence": "medium",
+   "recommendation": "Use crypto.randomUUID() (already used in useReviewDeck) or a monotonically increasing counter ref for message ids instead of Date.now().",
+   "fixable": "auto",
+   "dimension": "BUGS"
+  },
+  {
+   "severity": "low",
+   "title": "No in-flight guard on submit; Enter key bypasses the disabled state and allows duplicate/empty sends",
+   "description": "The send button is disabled when !userText.trim(), but the input's onKeyDown Enter handler calls submitTurn() with no such guard and no check for an in-flight request. Pressing Enter repeatedly (or while the awaited aiCoach.submitPracticeTurn is pending) can fire multiple overlapping turns, appending duplicate user messages and racing onFeedback/onSubmitted updates. submitTurn does trim/early-return on empty text, so empty sends are handled, but concurrent sends are not.",
+   "file": "src/components/PracticeRoom.tsx:88-117,183-187",
+   "confidence": "medium",
+   "recommendation": "Track an isSubmitting state and return early in submitTurn while a request is pending; disable the input/Enter path during submission.",
+   "fixable": "auto",
+   "dimension": "BUGS"
+  },
+  {
+   "severity": "low",
+   "title": "ReviewDeck uses the expression string itself as a React key; duplicate reviewCandidates cause key collisions",
+   "description": "In ReviewDeck, card.keyExpressions.map renders <span key={expr}>. keyExpressions comes from feedback.reviewCandidates, which is an arbitrary array with no uniqueness guarantee. If the same expression appears twice in one card's candidates, React emits a duplicate-key warning and may render only one tag.",
+   "file": "src/components/ReviewDeck.tsx:34-37",
+   "confidence": "medium",
+   "recommendation": "Use a composite/index key (e.g. key={`${expr}-${i}`}) or dedupe reviewCandidates before storing the card.",
+   "fixable": "auto",
+   "dimension": "BUGS"
+  },
+  {
+   "severity": "low",
+   "title": "App default-selects scenarios[1] instead of scenarios[0], a fragile index assumption",
+   "description": "App initializes selectedScenario with scenarios[1] (the business scenario), silently skipping the first scenario. This relies on the array having at least two elements and on a specific ordering; if scenario ordering/imports change, the default selection shifts unexpectedly. Not a crash today (the array is large), but an unintended/brittle default for an education flow that presents a numbered 'Syllabus'.",
+   "file": "src/App.tsx:14",
+   "confidence": "low",
+   "recommendation": "Default to scenarios[0] (or an explicit getScenarioById of an intended starter unit) so the first listed unit matches the default selection.",
+   "fixable": "needs-review",
+   "dimension": "BUGS"
+  }
+ ]
+}
