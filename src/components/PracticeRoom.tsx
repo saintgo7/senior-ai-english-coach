@@ -16,6 +16,7 @@ export function PracticeRoom({
   submittedText: string;
 }) {
   const [userText, setUserText] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [status, setStatus] = useState('타이핑으로 연습할 수 있습니다. / Type your sentence below.');
   const [messages, setMessages] = useState<Array<{ sender: 'ai' | 'user'; text: string; id: string }>>([]);
@@ -87,12 +88,13 @@ export function PracticeRoom({
 
   async function submitTurn() {
     const textToSend = userText.trim();
-    if (!textToSend) return;
-    
+    if (!textToSend || isSubmitting) return;
+
+    setIsSubmitting(true);
     setStatus('AI 코치가 표현을 다듬는 중입니다... / AI Coach is reviewing...');
-    
+
     // 1. Append user's message to conversation history
-    const userMsgId = 'user-' + Date.now();
+    const userMsgId = 'user-' + crypto.randomUUID();
     setMessages((prev) => [...prev, { sender: 'user', text: textToSend, id: userMsgId }]);
     setUserText(''); // Clear input box immediately
 
@@ -104,7 +106,7 @@ export function PracticeRoom({
       });
       
       // 2. Append AI's explanatory coachReply response to conversation history
-      const aiMsgId = 'ai-' + (Date.now() + 1);
+      const aiMsgId = 'ai-' + crypto.randomUUID();
       setMessages((prev) => [...prev, { sender: 'ai', text: nextFeedback.coachReply, id: aiMsgId }]);
       
       onSubmitted(textToSend);
@@ -113,6 +115,8 @@ export function PracticeRoom({
     } catch (error) {
       console.error(error);
       setStatus('오류가 발생했습니다. 다시 시도해 주세요. / Error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -167,6 +171,7 @@ export function PracticeRoom({
             className={`voice-input-btn ${isRecording ? 'recording' : ''}`}
             onClick={handleVoiceInput}
             title="Voice Input"
+            aria-label="음성으로 입력하기"
             type="button"
           >
             <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>
@@ -180,6 +185,7 @@ export function PracticeRoom({
             type="text"
             value={userText}
             aria-label="연습 문장 입력"
+            disabled={isSubmitting}
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
                 submitTurn();
@@ -189,7 +195,7 @@ export function PracticeRoom({
           <button
             className={`chat-send-btn ${userText.trim() ? 'active' : ''}`}
             onClick={submitTurn}
-            disabled={!userText.trim()}
+            disabled={!userText.trim() || isSubmitting}
             aria-label="AI 코치에게 보내기"
             type="button"
           >
