@@ -31,8 +31,8 @@ export function ReviewDeck({ cards, onClear }: { cards: ReviewCard[]; onClear: (
               <strong className="review-native">{card.nativeRewrite}</strong>
               <p className="review-explanation">{card.koreanExplanation}</p>
               <div className="review-tags">
-                {card.keyExpressions.map((expr) => (
-                  <span className="review-tag" key={expr}>
+                {card.keyExpressions.map((expr, i) => (
+                  <span className="review-tag" key={`${expr}-${i}`}>
                     {expr}
                   </span>
                 ))}

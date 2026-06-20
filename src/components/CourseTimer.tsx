@@ -31,12 +31,12 @@ export function CourseTimer() {
           ))}
         </div>
 
-        {/* Style 2 inspired Streak Widget */}
+        {/* Lesson flow guide (static sample, not a personal metric) */}
         <div className="streak-masthead-widget">
-          <span style={{ fontSize: '14px' }}>🔥</span>
+          <span style={{ fontSize: '14px' }}>📚</span>
           <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }}>
-            <span style={{ fontWeight: 700 }}>7일 연속 학습 중</span>
-            <span style={{ fontSize: '10px', opacity: 0.8, textTransform: 'uppercase' }}>7 Days Streak • 45m left</span>
+            <span style={{ fontWeight: 700 }}>학습 단계 안내</span>
+            <span style={{ fontSize: '10px', opacity: 0.8, textTransform: 'uppercase' }}>Lesson Flow (Sample)</span>
           </div>
         </div>
       </div>

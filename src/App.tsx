@@ -11,7 +11,7 @@ import { useReviewDeck } from './hooks/useReviewDeck';
 import { createAiCoachService, createMockAiCoachProvider } from './services/aiCoachService';
 
 export default function App() {
-  const [selectedScenario, setSelectedScenario] = useState<Scenario>(scenarios[1]);
+  const [selectedScenario, setSelectedScenario] = useState<Scenario>(scenarios[0]);
   const [feedback, setFeedback] = useState<PracticeTurnFeedback | null>(null);
   const [submittedText, setSubmittedText] = useState<string>('');
   const aiCoach = useMemo(() => createAiCoachService(createMockAiCoachProvider()), []);
@@ -41,7 +41,7 @@ export default function App() {
           {/* Left Column - Brand Logo & Syllabus */}
           <aside className="hybrid-left">
             <div className="brand-logo-container">
-              <a href="#" className="brand-logo">Pamout</a>
+              <span className="brand-logo">Pamout</span>
               <span className="brand-subtitle">AI English Coach</span>
             </div>
             <ScenarioPicker
@@ -51,12 +51,15 @@ export default function App() {
             />
             <div className="sidebar-footer">
               <div className="profile-info">
-                <div className="profile-avatar">
-                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB930q4es3Gu0EOgb2B9eXOc6fMaxcaJDAv1AwnBEWj2MxlBGV2SLd49938DRYuU4rno2CHutj5UGbbPLVOXcsV73pxm-jIfqRznEueBwDCa58EKkvZxjA66oA0O8wxJ82Q7R3gyGx1Z1w0bszqnDhX2akskJ2ak04fVS_cSkElNjqkMoCGVX8xyJpx0GB-5blVeeNH0TF-q84JurWgfwUKkpgI-RlB6kDG26MJrnjoNXUc_DYoYQkOOv8i_IHCdZNMCojY_gAA4aWO" alt="User profile avatar" />
+                <div className="profile-avatar" aria-hidden="true">
+                  <svg viewBox="0 0 40 40" width="40" height="40" role="img" aria-label="데모 프로필 아바타">
+                    <circle cx="20" cy="20" r="20" fill="#12343b" />
+                    <text x="20" y="26" textAnchor="middle" fontSize="16" fontWeight="700" fill="#ffffff">A</text>
+                  </svg>
                 </div>
                 <div className="profile-meta">
                   <span className="profile-name">Arthur</span>
-                  <span className="profile-level">Intermediate</span>
+                  <span className="profile-level">데모 프로필 • Demo Profile</span>
                 </div>
               </div>
             </div>
