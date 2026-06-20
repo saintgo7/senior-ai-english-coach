@@ -33,6 +33,12 @@ export type PracticeTurnFeedback = {
   koreanExplanation: string;
   keyUsageNote: string;
   reviewCandidates: string[];
+  /**
+   * 이 피드백이 실제 언어모델(LLM)이 검증한 결과인지 여부.
+   * mock·stub(에코/규칙 기반) provider는 false, 실제 백엔드 LLM 응답만 true.
+   * 미설정(undefined)은 기존 provider와의 호환을 위해 "검증 안 됨"으로 간주한다.
+   */
+  verified?: boolean;
 };
 
 export type ReviewCard = {
