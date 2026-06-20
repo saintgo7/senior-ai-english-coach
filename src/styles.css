@@ -286,6 +286,53 @@ textarea {
   margin-bottom: 2px;
 }
 
+.scenario-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.scenario-filter-btn {
+  background: white;
+  border: 1.5px solid var(--primary);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.scenario-filter-btn:hover {
+  background: var(--primary-container);
+}
+
+.scenario-filter-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+.scenario-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid var(--primary);
+  padding: 10px 12px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.scenario-result-count {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--outline);
+}
+
+.scenario-empty {
+  margin: 12px 0;
+  font-size: 14px;
+  color: var(--outline);
+}
+
 .scenario-grid {
   display: flex;
   flex-direction: column;
