@@ -86,3 +86,53 @@ npm test      → Test Files 4 passed (4) / Tests 10 passed (10)  (3회 반복 �
 특이사항: 작업 전 `App.test.tsx`가 5s 타임아웃으로 실패하고 있었으나, NativeRewritePanel의 중첩 span 하드코딩 렌더를 제거(수정 #1)하면서 렌더가 단순화되어 타임아웃 내에 안정적으로 통과하게 됨. 전체 스위트 소요시간 9.68s(실패) → 4.4s(전 통과).
 
 > 비고: 작업 시작 시점에 워킹트리에 사전 존재하던 `graphify-out/*` 삭제와 `package-lock.json` 변경이 있었음. `graphify-out/*` 삭제는 본 과제와 무관하여 커밋에 포함하지 않음. `package-lock.json`은 #13 audit fix와 관련되어 커밋에 포함.
+
+---
+
+## Round 2
+
+라운드1 수정을 잠그는 회귀 테스트 추가와, 남은 보류 항목 중 "안전하고 기계적인" 것만 보수적으로 적용했습니다. 소스 코드는 변경하지 않았고(라운드1 수정과 1바이트도 다르지 않음), 추가/변경된 파일은 테스트와 타입 선언뿐입니다.
+
+### 1. 추가한 회귀 테스트 (신규 7개)
+
+각 회귀 테스트는 라운드1 수정 *이전* 코드에서 FAIL, *이후* 코드에서 PASS함을 실제로 검증했습니다(아래 "사전 검증" 참조).
+
+| 테스트 파일 | 잠그는 라운드1 수정 | 사전(pre-fix) 동작 |
+|---|---|---|
+| `src/components/NativeRewritePanel.test.tsx` (2 회귀 + 1 스모크) | **HIGH**: 하드코딩 substring 분기 제거 → 학습자 실제 입력·AI 실제 교정만 렌더 | "change"가 든 입력을 무관한 "I want to change my appointment time."로 치환, "reschedule"이 든 교정을 하드코딩 문장으로 치환 |
+| `src/components/PracticeRoom.test.tsx` (1 회귀) | **BUGS**: in-flight 제출 가드(`isSubmitting`) | 제출 중에도 입력창이 활성·Enter로 중복 턴 발사 가능 |
+| `src/App.test.tsx` (기존 파일에 1 회귀 추가) | **BUGS**: 기본 선택 시나리오 `scenarios[1]` → `scenarios[0]` | 첫 유닛(Unit 01)이 아니라 두 번째 유닛이 기본 선택됨 |
+| `src/test/service-worker.test.ts` (1 회귀 + 1 가드 스모크) | **MEDIUM(PWA)**: fetch 핸들러 cache-on-fetch | 성공한 GET을 런타임 캐시에 적재하지 않아 해시 번들이 오프라인에서 미캐시 |
+
+- 채점/점수/인증/크레딧/공휴일 산술에 해당하는 코드는 이 앱에 존재하지 않습니다. 대신 "학습자에게 보여지는 내용의 정확성"(자신의 입력·AI 교정)과 "중복 제출(크레딧성) 가드"가 가장 가까운 정합성 위험이라 우선 커버했습니다.
+- **`ReviewDeck` key 충돌 수정(`key={expr}` → 복합 key)은 회귀 테스트를 추가하지 않았습니다.** React는 중복 key에서도 초기 렌더 시 두 요소를 모두 그려 경고만 내므로, 정적 렌더 단언으로는 pre-fix에서 FAIL하지 않습니다(재조정 시점의 불안정성은 결정적으로 재현 곤란). "pre-fix에서 반드시 실패" 요건을 충족하지 못하는 테스트를 두는 것은 오해 소지가 있어(§11) 추가하지 않았습니다.
+- `src/test/service-worker.test.ts`는 SW 소스를 Vite `?raw` 임포트로 문자열로 읽어 stub된 `self`/`caches`/`fetch` 스코프에서 실행해 검증합니다. 이를 위해 표준 Vite 타입 선언 `src/vite-env.d.ts`(`/// <reference types="vite/client" />`)를 추가했습니다(tsc 빌드가 `?raw` 모듈을 인식하도록).
+
+### 2. 적용한 보류 항목 (안전·기계적)
+
+없음. 검토 결과, 라운드1에서 미적용으로 남은 보류 항목 중 "안전하고 기계적이며 비투기적"인 항목이 추가로 없었습니다.
+
+- **죽은 `#`/Privacy/Terms 링크**: 브랜드 로고 `href="#"`는 라운드1에서 이미 `<span>`으로 수정 완료. 앱 내 Privacy/Terms 링크는 존재하지 않음(스캔 결과 매치는 전부 시나리오 텍스트 본문).
+- **서비스워커 해시 에셋 캐싱**: 라운드1에서 이미 cache-on-fetch로 구현 완료(본 라운드에서는 회귀 테스트만 추가).
+- **입력 검증**: 빈 입력은 이미 `submitTurn`의 `trim()` early-return + 서비스 정규화로 처리됨. 길이 상한 등 추가 검증은 감사에서 요구하지 않았고 정상 장문을 막을 위험이 있어 투기적이라 미적용(§2).
+
+### 3. 계속 보류 (stillDeferred)
+
+| 항목 | 사유 |
+|---|---|
+| **PWA manifest icons (`"icons": []`)** | `public/`의 유일한 이미지는 1024×1024 **전체 UI 목업 스크린샷**(`pamout_*_mockup.png`)으로, 런처 아이콘용 브랜드 마크가 아님. 스크린샷을 앱 아이콘으로 등록하면 홈 화면에서 부정확하게 보임. 진짜 아이콘 에셋 생성은 디자인/제품 결정 사안이라 데이터 날조 없이 적용 불가. |
+| **실 AI 백엔드 + demo 플래그 UI 노출** | `/api/coach/practice-turn` 실 백엔드·서버사이드 키 필요(라이브 서버/시크릿 영역). "demo임을 UI에 표기"를 위한 `isDemo` 반환 필드 추가는 소비처가 없어 투기적(§2)이고, CourseTimer·프로필 라벨이 이미 "Sample/Demo Profile"로 데모성을 표기함. |
+| **CSP / Google Fonts·Material Symbols 오프라인 폴백 / lang=ko / esbuild dev 취약점 잔여 1건** | 라운드1 보류 사유 그대로 유효(브라우저 런타임 검증 필요·외부 폰트 바이너리 다운로드·제품 i18n 결정·비파괴 수정 경로 없음). |
+| **ReviewDeck 중복 key 회귀 테스트** | 위 §1 참조 — pre-fix에서 결정적으로 FAIL하는 정적 테스트를 만들 수 없어 보류(수정 자체는 라운드1에 반영됨). |
+
+### 4. 검증 결과 (Round 2)
+
+```
+npm install   → up to date
+npm run build → ✓ tsc -b 통과 + vite build 통과 (entry index-*.js 210.36 kB / scenarios-*.js 1,208.78 kB 유지)
+npm test      → Test Files 7 passed (7) / Tests 17 passed (17)  (라운드1: 4 files / 10 tests → +3 files / +7 tests)
+```
+
+**사전(pre-fix) 검증**: 라운드1 수정 직전 소스(`<fix>~1`)를 임시로 되돌려 신규 회귀 테스트를 실행한 결과, 5개 회귀 단언이 모두 FAIL(NativeRewritePanel 2 + PracticeRoom 1 + App 1 + service-worker 1), 비회귀 스모크 3개는 PASS. 검증 후 소스는 원복(라운드1과 1바이트 차이 없음 확인).
+
+> 비고: 소스 파일(`*.tsx`, `*.js`, `*.ts` 구현)은 일절 변경하지 않았습니다. 본 라운드 커밋 대상은 테스트 파일 4개와 `src/vite-env.d.ts`(표준 Vite 타입 선언) 뿐입니다. `graphify-out/*` 삭제는 라운드1과 동일하게 본 과제 무관으로 커밋 미포함.
