@@ -21,4 +21,15 @@ describe('App', () => {
     await user.click(screen.getByRole('button', { name: /복습 카드/ }));
     expect(screen.getByText('저장된 복습 카드 1개 • Journal (1)')).toBeInTheDocument();
   });
+
+  // 라운드1 수정 회귀: 기본 선택 시나리오가 scenarios[1]이 아니라 scenarios[0](Unit 01)인지 검증한다.
+  it('default-selects the first scenario (Unit 01), not scenarios[1]', () => {
+    render(<App />);
+
+    const firstUnitCard = screen.getByText('Unit 01').closest('button');
+    const secondUnitCard = screen.getByText('Unit 02').closest('button');
+
+    expect(firstUnitCard).toHaveClass('selected');
+    expect(secondUnitCard).not.toHaveClass('selected');
+  });
 });
