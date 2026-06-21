@@ -136,3 +136,86 @@ npm test      → Test Files 7 passed (7) / Tests 17 passed (17)  (라운드1: 4
 **사전(pre-fix) 검증**: 라운드1 수정 직전 소스(`<fix>~1`)를 임시로 되돌려 신규 회귀 테스트를 실행한 결과, 5개 회귀 단언이 모두 FAIL(NativeRewritePanel 2 + PracticeRoom 1 + App 1 + service-worker 1), 비회귀 스모크 3개는 PASS. 검증 후 소스는 원복(라운드1과 1바이트 차이 없음 확인).
 
 > 비고: 소스 파일(`*.tsx`, `*.js`, `*.ts` 구현)은 일절 변경하지 않았습니다. 본 라운드 커밋 대상은 테스트 파일 4개와 `src/vite-env.d.ts`(표준 Vite 타입 선언) 뿐입니다. `graphify-out/*` 삭제는 라운드1과 동일하게 본 과제 무관으로 커밋 미포함.
+
+---
+
+## Round 3
+
+프레시-렌즈 감사가 새로 보고한 10건(신규, `newVsRound1: true`)에 대해 보수적·외과적으로 수정했습니다. 데이터/백엔드를 날조하지 않았고, 외부 데이터·제품(i18n) 결정이 필요한 항목은 보류했습니다(§11).
+
+### 수정 완료 (7건)
+
+#### HIGH
+
+1. **`crypto.randomUUID()`가 비보안(HTTP) 컨텍스트에서 throw → 제출/복습저장 중단 (EDGECASE)**
+   `src/utils/uuid.ts`(신규), `src/components/PracticeRoom.tsx`, `src/hooks/useReviewDeck.ts`
+   - `crypto.randomUUID`는 보안 출처(HTTPS/localhost)에서만 노출됩니다. 평문 HTTP 스테이징에서는 `undefined`라 호출 시 `TypeError`가 발생합니다.
+   - `randomUUID` → `getRandomValues`(RFC4122 v4) → 비암호학적(Date+Math.random, key 용도) 순으로 폴백하는 `uuid()` 헬퍼를 추가하고, `PracticeRoom`의 user/AI 메시지 ID 2곳과 `useReviewDeck.addCard` 1곳을 교체했습니다.
+   - 추가로 `submitTurn`에서 user-메시지 `setMessages`(ID 생성 포함)를 **`try` 블록 안으로 이동**해, ID 생성 실패가 try 밖에서 제출을 중단시키지 못하도록 했습니다.
+   - (스테이징 HTTPS 강제 여부는 서버 설정 영역이라 코드로 단정하지 않고, 코드 자체가 비보안 컨텍스트에서도 안전하도록 방어.)
+
+2. **장식용 Material Symbols 아이콘 span에 `aria-hidden` 누락 (ACCESSIBILITY)**
+   `src/components/PracticeRoom.tsx`(mic·send), `src/components/LessonBrief.tsx`(volume_up ×2), `src/components/NativeRewritePanel.tsx`(auto_fix_high·arrow_downward·menu_book·bookmark)
+   - 8개 span 전부에 `aria-hidden="true"` 추가(부모 버튼/텍스트가 접근 가능한 이름을 이미 제공). 스크린리더가 리거처 텍스트('send'/'mic'/'bookmark' 등)를 중복 낭독하는 문제 제거. grep 검증: aria-hidden 없는 span 0개.
+   - (폰트 차단 시 SVG/자가호스팅 폴백은 외부 폰트 바이너리·디자인 변경이 필요해 보류 — 아래.)
+
+3. **키보드 포커스 인디케이터 부재 + chat 입력의 `outline:none` (ACCESSIBILITY, WCAG 2.4.7)**
+   `src/styles.css`
+   - 전역 `:focus-visible` 규칙 추가(a/button/input/textarea/`.scenario-card`에 `outline: 2px solid var(--secondary)`).
+   - `.chat-text-input:focus { outline:none }`을 `:focus:not(:focus-visible)`로 한정해 포인터 포커스는 깔끔하게 두되 **키보드 포커스는 링이 보이도록** 변경.
+
+#### MEDIUM
+
+4. **오디오 발음 버튼 aria-label 부재 → 접근 가능한 이름이 리거처 'volume_up' (ACCESSIBILITY)**
+   `src/components/LessonBrief.tsx`
+   - 두 발음 버튼에 `aria-label={`Listen to pronunciation of ${term.english}`}` 추가(어떤 단어를 읽는지 명시) + 내부 아이콘 span `aria-hidden`(위 #2에 포함).
+
+5. **화자(COACH/LEARNER)가 CSS `::before`로만 표현되어 접근성 트리에서 누락 (ACCESSIBILITY)**
+   `src/components/PracticeRoom.tsx`, `src/styles.css`
+   - 비대화형 `<div>`에 달려 무시되던 `aria-label`을 제거하고, COACH/LEARNER를 **실제 DOM 텍스트 `<span class="chat-speaker-label">`**로 렌더링. CSS `::before content`를 제거하고 동일 스타일을 클래스로 이전(시각적 동일). 스크린리더가 화자를 구분할 수 있게 됨.
+
+6. **예정 단계 라벨 `opacity:0.4` → WCAG 대비 미달 (ACCESSIBILITY)**
+   `src/styles.css`
+   - `.agenda-item`(upcoming) `opacity 0.4 → 0.85`, `.completed 0.7 → 0.85`(line-through 유지)로 상향해 저시력 사용자 가독성 확보. active(1)와의 시각적 위계는 유지.
+
+7. **`ScenarioPicker`가 ~495 카드를 매 선택마다 전체 재렌더 + 행마다 인라인 style 객체 재생성 (PERFORMANCE)**
+   `src/components/ScenarioPicker.tsx`, `src/App.tsx`
+   - 컴포넌트를 `memo`로 감싸고, `Unit` 라벨 인라인 style을 모듈 상수 `unitLabelStyle`로 호이스트(행마다 객체 재생성 제거).
+   - `memo`가 실효를 갖도록 `App`의 `handleSelectScenario`를 `useCallback`으로 안정화(시나리오 데이터는 모듈 상수라 이미 안정). 선택 시 재렌더는 `selectedId` 변경 시에만 발생.
+   - (윈도잉/카테고리 필터로 DOM 노드 수 자체를 줄이는 것은 UX·레이아웃 변경을 수반하는 더 큰 작업이라 아래 보류. 본 라운드는 "행당 재렌더 비용 경계화"라는 안전한 부분만 적용.)
+
+### 회귀 테스트 추가 (신규 5개, 1 파일 신설)
+
+| 테스트 | 잠그는 수정 | pre-fix 동작 |
+|---|---|---|
+| `src/utils/uuid.test.ts` (3) | #1 uuid 폴백 | `randomUUID` 미존재 시 throw(이전엔 헬퍼 자체가 없었음) |
+| `PracticeRoom.test.tsx` IME guard (1) | #IME(아래) | `isComposing:true`인 Enter에도 제출 발사 |
+| `PracticeRoom.test.tsx` speaker label (1) | #5 | 'COACH'가 DOM 텍스트로 존재하지 않음(::before뿐) |
+
+- IME guard 테스트는 `fireEvent.keyDown(..., {isComposing:true})`로 조합 확정 Enter를, `{isComposing:false}`로 실제 Enter를 시뮬레이션합니다. pre-fix(`if (event.key === 'Enter')`)에서는 첫 단언(`not.toHaveBeenCalled`)이 FAIL합니다.
+- uuid 폴백 테스트는 `vi.stubGlobal('crypto', { getRandomValues })`로 비보안 컨텍스트를 모사하고 RFC4122 v4 형태를 단언합니다.
+- 시각적 CSS 변경(포커스 링·opacity 대비)과 aria-hidden 속성은 jsdom 단위 테스트로 신뢰성 있게 단언하기 어려워(레이아웃/계산 스타일 미지원) 별도 회귀를 두지 않았습니다(허위 테스트 회피, §11).
+
+#### IME 조합 중 Enter 조기 전송 (EDGECASE MEDIUM)
+   `src/components/PracticeRoom.tsx`
+   - Enter 핸들러에 `&& !event.nativeEvent.isComposing` 가드 추가. 한국어/CJK IME 조합 확정용 Enter가 미완성 문장을 전송하지 못하도록 방지.
+
+### 보류 (defer) (3건)
+
+| 항목 | 사유 |
+|---|---|
+| **시나리오 데이터(1.2MB) 진짜 lazy-load (PERFORMANCE HIGH, needs-review)** | `manualChunks`로 분리된 청크가 정적 import 때문에 `dist/index.html`에서 `modulepreload`로 초기 로드되는 것은 사실(확인됨, 1건 잔존). 진짜 해결은 **경량 인덱스(id/title/category/difficulty/learnerGoal) 즉시 로드 + 상세(keyWords/idioms/nativeExamples/koreanExplanation) `import()` 지연**으로 데이터 형태·App 비동기 로딩 상태·자식 컴포넌트·테스트를 모두 바꾸는 아키텍처 변경입니다. App.test.tsx가 동기 렌더를 전제하므로 스테이징을 깨뜨릴 위험이 큽니다. 대안 (b)(오해 소지 주석 제거)는 코스메틱이라 §3 위반 우려로 미적용 — 대신 본 표에 정확한 현황을 명시합니다. 라운드4에서 로딩 상태 UI와 함께 별도로 다루는 것을 권장. |
+| **ScenarioPicker 윈도잉/카테고리 필터(DOM 노드 수 감소) (PERFORMANCE MEDIUM, needs-review)** | `react-window` 도입 또는 카테고리 섹션 분할은 레이아웃·UX 변경과 신규 의존성을 수반. 본 라운드는 memo + style 호이스트(재렌더 비용 경계화)라는 안전 부분만 적용. 초기 DOM 노드 수 축소는 위 lazy-load와 함께 다루는 것이 자연스러움. |
+| **i18n EN/ZH 완성도 + `<html lang>` 정정 (ACCESSIBILITY HIGH, needs-review)** | ZH 콘텐츠는 **앱에 전무**(grep 한자 0건)하므로 중국어 로케일 추가는 문자열 외부화 + 번역 데이터가 필요한 **제품·데이터 결정**입니다(날조 금지, §11). `<html lang="ko">` 단일 값 정정도 한국어 UI/설명과 영어 학습 콘텐츠가 섞여 있어 단순 교체가 양쪽을 동시에 만족시키지 못하며, 견고한 해법(요소별 `lang` 속성)은 다수 컴포넌트·양국어 문자열 전반의 광범위 변경이라 외과적 범위를 벗어납니다(라운드1/2 보류 사유와 일관). |
+
+### 검증 결과 (Round 3)
+
+```
+npm install   → up to date
+npm run build → ✓ tsc -b 통과 + vite build 통과
+                entry index-*.js 211.17 kB (gzip 66.86) / scenarios-*.js 1,208.78 kB (gzip 368.47)
+npm test      → Test Files 8 passed (8) / Tests 22 passed (22)  (라운드2: 7/17 → +1 file / +5 tests)
+npx tsc -b    → exit 0 (타입 에러 없음)
+```
+
+> 비고: 본 라운드 변경 파일 — 구현: `src/utils/uuid.ts`(신규), `src/components/PracticeRoom.tsx`, `src/components/LessonBrief.tsx`, `src/components/NativeRewritePanel.tsx`, `src/components/ScenarioPicker.tsx`, `src/App.tsx`, `src/styles.css`. 테스트: `src/utils/uuid.test.ts`(신규), `src/components/PracticeRoom.test.tsx`. `graphify-out/*` 삭제·`package-lock.json`은 본 과제 무관(이전 라운드와 동일)으로 커밋 미포함.

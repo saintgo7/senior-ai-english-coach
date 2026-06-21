@@ -12,7 +12,7 @@ export function NativeRewritePanel({
   return (
     <section className="feedback-panel" aria-label="AI 코치 피드백">
       <div className="feedback-title-row">
-        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1", color: 'var(--secondary)' }}>
+        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1", color: 'var(--secondary)' }} aria-hidden="true">
           auto_fix_high
         </span>
         <span>교정 노트 • Revision Sheet</span>
@@ -26,7 +26,7 @@ export function NativeRewritePanel({
       </div>
 
       <div className="rewrite-divider" aria-hidden="true">
-        <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>
+        <span className="material-symbols-outlined" style={{ fontSize: '20px' }} aria-hidden="true">
           arrow_downward
         </span>
       </div>
@@ -39,7 +39,7 @@ export function NativeRewritePanel({
       </div>
 
       <div className="explanation-tip-box">
-        <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+        <span className="material-symbols-outlined" style={{ fontSize: '18px' }} aria-hidden="true">
           menu_book
         </span>
         <div>
@@ -52,7 +52,7 @@ export function NativeRewritePanel({
       </div>
 
       <button className="save-bookmark-btn" onClick={onSave} type="button">
-        <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+        <span className="material-symbols-outlined" style={{ fontSize: '18px' }} aria-hidden="true">
           bookmark
         </span>
         복습 카드에 저장 • Save to Review Deck

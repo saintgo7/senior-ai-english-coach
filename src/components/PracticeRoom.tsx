@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { PracticeTurnFeedback, Scenario } from '../domain/types';
 import type { AiCoachProvider } from '../services/aiCoachService';
+import { uuid } from '../utils/uuid';
 
 export function PracticeRoom({
   scenario,
@@ -93,20 +94,21 @@ export function PracticeRoom({
     setIsSubmitting(true);
     setStatus('AI 코치가 표현을 다듬는 중입니다... / AI Coach is reviewing...');
 
-    // 1. Append user's message to conversation history
-    const userMsgId = 'user-' + crypto.randomUUID();
-    setMessages((prev) => [...prev, { sender: 'user', text: textToSend, id: userMsgId }]);
-    setUserText(''); // Clear input box immediately
-
     try {
+      // 1. Append user's message to conversation history. Kept inside try so an
+      // id-generation failure cannot strand the submit before feedback renders.
+      const userMsgId = 'user-' + uuid();
+      setMessages((prev) => [...prev, { sender: 'user', text: textToSend, id: userMsgId }]);
+      setUserText(''); // Clear input box immediately
+
       const nextFeedback = await aiCoach.submitPracticeTurn({
         scenarioId: scenario.id,
         userText: textToSend,
         inputMode: 'text',
       });
-      
+
       // 2. Append AI's explanatory coachReply response to conversation history
-      const aiMsgId = 'ai-' + crypto.randomUUID();
+      const aiMsgId = 'ai-' + uuid();
       setMessages((prev) => [...prev, { sender: 'ai', text: nextFeedback.coachReply, id: aiMsgId }]);
       
       onSubmitted(textToSend);
@@ -156,7 +158,11 @@ export function PracticeRoom({
       <div className="chat-history custom-scrollbar">
         {messages.map((msg) => (
           <div className={`chat-message ${msg.sender}`} key={msg.id}>
-            <div className="chat-avatar-container" aria-label={msg.sender === 'ai' ? 'Coach' : 'Learner'}></div>
+            <div className="chat-avatar-container">
+              <span className="chat-speaker-label">
+                {msg.sender === 'ai' ? 'COACH' : 'LEARNER'}
+              </span>
+            </div>
             <div className="chat-bubble-text">
               {msg.text}
             </div>
@@ -174,7 +180,7 @@ export function PracticeRoom({
             aria-label="음성으로 입력하기"
             type="button"
           >
-            <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>
+            <span className="material-symbols-outlined" style={{ fontSize: '28px' }} aria-hidden="true">
               mic
             </span>
           </button>
@@ -187,7 +193,9 @@ export function PracticeRoom({
             aria-label="연습 문장 입력"
             disabled={isSubmitting}
             onKeyDown={(event) => {
-              if (event.key === 'Enter') {
+              // Ignore the Enter that confirms a Korean/CJK IME composition so a
+              // half-composed sentence is not submitted prematurely.
+              if (event.key === 'Enter' && !event.nativeEvent.isComposing) {
                 submitTurn();
               }
             }}
@@ -199,7 +207,7 @@ export function PracticeRoom({
             aria-label="AI 코치에게 보내기"
             type="button"
           >
-            <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>
+            <span className="material-symbols-outlined" style={{ fontSize: '28px' }} aria-hidden="true">
               send
             </span>
           </button>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { CourseTimer } from './components/CourseTimer';
 import { LessonBrief } from './components/LessonBrief';
 import { PracticeRoom } from './components/PracticeRoom';
@@ -17,11 +17,11 @@ export default function App() {
   const aiCoach = useMemo(() => createAiCoachService(createMockAiCoachProvider()), []);
   const { cards, addCard, clearCards } = useReviewDeck();
 
-  function handleSelectScenario(scenario: Scenario) {
+  const handleSelectScenario = useCallback((scenario: Scenario) => {
     setSelectedScenario(scenario);
     setFeedback(null);
     setSubmittedText('');
-  }
+  }, []);
 
   function saveFeedback() {
     if (!feedback) return;

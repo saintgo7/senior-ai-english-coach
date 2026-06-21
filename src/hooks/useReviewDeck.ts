@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { ReviewCard } from '../domain/types';
+import { uuid } from '../utils/uuid';
 
 const STORAGE_KEY = 'senior-ai-english-review-cards';
 
@@ -24,7 +25,7 @@ export function useReviewDeck() {
     setCards((current) => [
       {
         ...card,
-        id: crypto.randomUUID(),
+        id: uuid(),
         createdAt: new Date().toISOString(),
       },
       ...current,

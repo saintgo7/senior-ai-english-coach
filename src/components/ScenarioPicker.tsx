@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { Scenario } from '../domain/types';
 
 const categoryLabels = {
@@ -7,7 +8,11 @@ const categoryLabels = {
   it: 'IT 비즈니스 • Tech',
 } as const;
 
-export function ScenarioPicker({
+// Hoisted so the per-card style object is not re-created on every render of
+// every one of the ~495 scenario buttons.
+const unitLabelStyle = { fontFamily: 'Lora', fontWeight: 700, fontSize: '12px', marginRight: '4px' } as const;
+
+function ScenarioPickerInner({
   scenarios,
   selectedId,
   onSelect,
@@ -33,7 +38,7 @@ export function ScenarioPicker({
               type="button"
             >
               <div className="scenario-meta">
-                <span style={{ fontFamily: 'Lora', fontWeight: 700, fontSize: '12px', marginRight: '4px' }}>
+                <span style={unitLabelStyle}>
                   Unit {numStr}
                 </span>
                 <span className={`badge category-${scenario.category}`}>
@@ -56,3 +61,7 @@ export function ScenarioPicker({
     </section>
   );
 }
+
+// Memoized so selecting a scenario only re-renders the list when its props
+// (scenarios/selectedId) actually change, not on unrelated App re-renders.
+export const ScenarioPicker = memo(ScenarioPickerInner);

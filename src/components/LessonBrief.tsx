@@ -80,9 +80,10 @@ export function LessonBrief({ scenario }: { scenario: Scenario }) {
               className="audio-btn"
               onClick={() => handlePlayAudio(term.english)}
               title="Listen Pronunciation"
+              aria-label={`Listen to pronunciation of ${term.english}`}
               type="button"
             >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }} aria-hidden="true">
                 volume_up
               </span>
             </button>
@@ -103,9 +104,10 @@ export function LessonBrief({ scenario }: { scenario: Scenario }) {
               className="audio-btn"
               onClick={() => handlePlayAudio(term.english)}
               title="Listen Pronunciation"
+              aria-label={`Listen to pronunciation of ${term.english}`}
               type="button"
             >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }} aria-hidden="true">
                 volume_up
               </span>
             </button>

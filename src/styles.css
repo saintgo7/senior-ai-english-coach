@@ -38,6 +38,16 @@ textarea {
   color: inherit;
 }
 
+/* Visible keyboard focus indicator (WCAG 2.4.7) for all interactive controls. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.scenario-card:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
 /* Scrollbar styling */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
@@ -203,12 +213,14 @@ textarea {
   align-items: center;
   gap: 6px;
   font-size: 13px;
-  opacity: 0.4;
+  /* Upcoming steps were at opacity 0.4, dropping text below WCAG 4.5:1.
+     Raised so the de-emphasised labels stay readable for low-vision users. */
+  opacity: 0.85;
   transition: opacity 0.2s;
 }
 
 .agenda-item.completed {
-  opacity: 0.7;
+  opacity: 0.85;
   text-decoration: line-through;
 }
 
@@ -412,22 +424,20 @@ textarea {
   border-bottom: none;
 }
 
-.chat-message.ai .chat-avatar-container::before {
-  content: "COACH";
-  font-family: 'Lora', Georgia, serif;
+.chat-speaker-label {
   font-size: 11px;
   font-weight: 700;
-  color: var(--secondary);
   letter-spacing: 0.05em;
 }
 
-.chat-message.user .chat-avatar-container::before {
-  content: "LEARNER";
+.chat-message.ai .chat-speaker-label {
+  font-family: 'Lora', Georgia, serif;
+  color: var(--secondary);
+}
+
+.chat-message.user .chat-speaker-label {
   font-family: 'Outfit', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
   color: var(--text);
-  letter-spacing: 0.05em;
 }
 
 .chat-avatar-container img {
@@ -467,7 +477,9 @@ textarea {
   padding: 6px 0;
 }
 
-.chat-text-input:focus {
+/* Suppress the outline only for pointer focus; keyboard focus keeps the
+   global :focus-visible ring above (WCAG 2.4.7). */
+.chat-text-input:focus:not(:focus-visible) {
   outline: none;
 }
 

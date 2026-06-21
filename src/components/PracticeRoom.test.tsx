@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { PracticeRoom } from './PracticeRoom';
 import type { AiCoachProvider } from '../services/aiCoachService';
 import type { PracticeTurnFeedback, Scenario } from '../domain/types';
@@ -79,5 +79,54 @@ describe('PracticeRoom submit guard', () => {
     expect(deferred.calls).toBe(1);
 
     deferred.resolveCurrent();
+  });
+});
+
+// 라운드3 EDGECASE 수정 회귀 테스트: 한국어/CJK IME 조합 확정 Enter(isComposing=true)로 미완성 문장이 전송되지 않는지 검증한다.
+describe('PracticeRoom IME composition guard', () => {
+  it('does not submit on the Enter that confirms an IME composition', async () => {
+    const user = userEvent.setup();
+    const submit = vi.fn(() => Promise.resolve(feedback));
+    const provider: AiCoachProvider = { submitPracticeTurn: submit };
+
+    render(
+      <PracticeRoom
+        scenario={scenario}
+        aiCoach={provider}
+        onSubmitted={() => {}}
+        onFeedback={() => {}}
+        submittedText=""
+      />,
+    );
+
+    const input = screen.getByLabelText('연습 문장 입력');
+    await user.type(input, '안녕하세요');
+
+    // Enter that only confirms the Hangul composition: pre-fix this submitted a
+    // half-composed turn; post-fix the isComposing guard ignores it.
+    fireEvent.keyDown(input, { key: 'Enter', isComposing: true });
+    expect(submit).not.toHaveBeenCalled();
+
+    // A real Enter (composition already finalized) still submits.
+    fireEvent.keyDown(input, { key: 'Enter', isComposing: false });
+    expect(submit).toHaveBeenCalledTimes(1);
+  });
+});
+
+// 라운드3 A11Y 수정 회귀 테스트: 화자(COACH/LEARNER) 라벨이 CSS ::before가 아니라 실제 DOM 텍스트로 접근성 트리에 노출되는지 검증한다.
+describe('PracticeRoom speaker attribution', () => {
+  it('renders the COACH speaker label as real DOM text for the opening message', () => {
+    const provider: AiCoachProvider = { submitPracticeTurn: () => Promise.resolve(feedback) };
+    render(
+      <PracticeRoom
+        scenario={scenario}
+        aiCoach={provider}
+        onSubmitted={() => {}}
+        onFeedback={() => {}}
+        submittedText=""
+      />,
+    );
+
+    expect(screen.getByText('COACH')).toBeInTheDocument();
   });
 });
