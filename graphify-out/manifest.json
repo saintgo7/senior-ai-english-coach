@@ -1,0 +1,292 @@
+{
+  "_AUDIT_FINDINGS.json": {
+    "mtime": 1781946571.9382787,
+    "ast_hash": "bc3ee9eae95b09c420d0e0d8010f3143",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1778646068.2902253,
+    "ast_hash": "6e9fad1123401eb709ea3153a91fd0d6",
+    "semantic_hash": ""
+  },
+  "public/service-worker.js": {
+    "mtime": 1782010444.1261115,
+    "ast_hash": "c07eff463462af11e199b28119449873",
+    "semantic_hash": ""
+  },
+  "src/App.test.tsx": {
+    "mtime": 1782009952.0961413,
+    "ast_hash": "1a995b2869638d33d17fd5f2ee8b9040",
+    "semantic_hash": ""
+  },
+  "src/App.tsx": {
+    "mtime": 1782011086.6219165,
+    "ast_hash": "c5e9c860bc6a998e2dde6308a977c498",
+    "semantic_hash": ""
+  },
+  "src/components/CourseTimer.tsx": {
+    "mtime": 1781946789.3015695,
+    "ast_hash": "b3b16cc53a5f93682afd9ebd606d0abc",
+    "semantic_hash": ""
+  },
+  "src/components/LessonBrief.tsx": {
+    "mtime": 1782011016.3907745,
+    "ast_hash": "59d42691cc4d49753cfc00d3a99a1936",
+    "semantic_hash": ""
+  },
+  "src/components/NativeRewritePanel.test.tsx": {
+    "mtime": 1782009906.9275055,
+    "ast_hash": "068613a7be51b9a2f6f9940c01564009",
+    "semantic_hash": ""
+  },
+  "src/components/NativeRewritePanel.tsx": {
+    "mtime": 1782011034.0089533,
+    "ast_hash": "6d5ea248607370f586c4e9649884cb1a",
+    "semantic_hash": ""
+  },
+  "src/components/PracticeRoom.test.tsx": {
+    "mtime": 1782011139.1442788,
+    "ast_hash": "69a10e421308e6bb2525e65a1038f897",
+    "semantic_hash": ""
+  },
+  "src/components/PracticeRoom.tsx": {
+    "mtime": 1782010995.350556,
+    "ast_hash": "9f1583cf58f63872cf678a40c469f6c4",
+    "semantic_hash": ""
+  },
+  "src/components/ReviewDeck.tsx": {
+    "mtime": 1782010000.9394128,
+    "ast_hash": "77dff0206627bc5fa90b14373293af3c",
+    "semantic_hash": ""
+  },
+  "src/components/ScenarioPicker.tsx": {
+    "mtime": 1782011078.7863986,
+    "ast_hash": "5fdd03b2082d0a4c52d03b92194aad30",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios.test.ts": {
+    "mtime": 1779521720.2115176,
+    "ast_hash": "51d2f04269373c4053f91354f258e213",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios.ts": {
+    "mtime": 1779521716.083697,
+    "ast_hash": "4fd5ea0559be002fd7f27404585493d5",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/business-client.ts": {
+    "mtime": 1779514726.048462,
+    "ast_hash": "a02cf19cfcc2e34069bf89476691d242",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/business-hr.ts": {
+    "mtime": 1779514772.067705,
+    "ast_hash": "a75e3fffeae0211962e3788a8d968f9b",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/business-meetings.ts": {
+    "mtime": 1779513719.376131,
+    "ast_hash": "f913cc0dc66148397b67dc146bdbfd6e",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/daily-community.ts": {
+    "mtime": 1779521864.7382476,
+    "ast_hash": "8ad3087afae9355b6442bd61dca5397e",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/daily-finance.ts": {
+    "mtime": 1779512939.4433544,
+    "ast_hash": "213413a9d8fb994b512be7ac1490dcbd",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/daily-health.ts": {
+    "mtime": 1779512420.5771239,
+    "ast_hash": "76848d36fd96eda6a2ea17e95a5c9c1c",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/daily-social.ts": {
+    "mtime": 1779513669.1935365,
+    "ast_hash": "d382c9389cdd1cfd178b70ecd1c805c6",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/it-agile.ts": {
+    "mtime": 1779516964.7838864,
+    "ast_hash": "ec6e10bac0106888e479fae3e276ed1d",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/it-client.ts": {
+    "mtime": 1779521738.5596688,
+    "ast_hash": "68e82938a636b0d91d3b0bb4c3b546d1",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/it-code.ts": {
+    "mtime": 1779519039.296301,
+    "ast_hash": "bc8e30c716a176f47acac7995021f4ed",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/it-devops.ts": {
+    "mtime": 1779521391.92867,
+    "ast_hash": "6615fc6a2bea004c7839c9351fd55ad6",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/it-incident.ts": {
+    "mtime": 1779521150.706974,
+    "ast_hash": "5bf7e42007104d29de4cecacb6d683cd",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/it-interview.ts": {
+    "mtime": 1779521796.8201904,
+    "ast_hash": "1ea18fc2df677deffb6a15babfe51969",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/it-leadership.ts": {
+    "mtime": 1779521252.6483428,
+    "ast_hash": "4aa3f9fe0cbbafeb63b761146ac52525",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/it-product.ts": {
+    "mtime": 1779521325.4464986,
+    "ast_hash": "a16735a05314e20fe243e88f23c0fc92",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/it-remote.ts": {
+    "mtime": 1779521167.1765695,
+    "ast_hash": "cf04219f2a30fdbd1ae3489e72ba7bbf",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/travel-culture.ts": {
+    "mtime": 1779516944.9654033,
+    "ast_hash": "5c7e5c222515604f63e7126103d5405f",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/travel-emergency.ts": {
+    "mtime": 1779516954.4802032,
+    "ast_hash": "721e3cfc581cebc82844c2535754aaac",
+    "semantic_hash": ""
+  },
+  "src/data/scenarios/travel-transit.ts": {
+    "mtime": 1779514776.5237856,
+    "ast_hash": "fc51981a50e9a2274b2b6cdadd873a43",
+    "semantic_hash": ""
+  },
+  "src/domain/types.ts": {
+    "mtime": 1779505673.0174823,
+    "ast_hash": "afa9f3a7cfbe33c21e3ab095b0a61b9a",
+    "semantic_hash": ""
+  },
+  "src/hooks/useReviewDeck.test.tsx": {
+    "mtime": 1778646209.116119,
+    "ast_hash": "367a38a514850b554fa24d8525b564aa",
+    "semantic_hash": ""
+  },
+  "src/hooks/useReviewDeck.ts": {
+    "mtime": 1782010963.1994388,
+    "ast_hash": "d8a1cd4db09caedd5e2121600b930eb9",
+    "semantic_hash": ""
+  },
+  "src/main.tsx": {
+    "mtime": 1778645976.7287905,
+    "ast_hash": "cae07e2cfb471e9dfde8a9bfc9f030db",
+    "semantic_hash": ""
+  },
+  "src/services/aiCoachService.test.ts": {
+    "mtime": 1778646158.1802702,
+    "ast_hash": "d586245860b02946dcd0c51b52677e12",
+    "semantic_hash": ""
+  },
+  "src/services/aiCoachService.ts": {
+    "mtime": 1778646179.719242,
+    "ast_hash": "c8001df6a8b195c3b39dbce1aadbefc1",
+    "semantic_hash": ""
+  },
+  "src/test/service-worker.test.ts": {
+    "mtime": 1782010116.5773058,
+    "ast_hash": "0f493ca1f13de65ddbc905e9514c2788",
+    "semantic_hash": ""
+  },
+  "src/test/setup.ts": {
+    "mtime": 1778646255.3367426,
+    "ast_hash": "bacdefdc493f84bd3fa952461cdbebff",
+    "semantic_hash": ""
+  },
+  "src/utils/uuid.test.ts": {
+    "mtime": 1782011112.6233747,
+    "ast_hash": "5d225bc4683f3cc16b78d0abbef67d2b",
+    "semantic_hash": ""
+  },
+  "src/utils/uuid.ts": {
+    "mtime": 1782010956.845372,
+    "ast_hash": "caa18dbf92ba056ea3918a2285a6317d",
+    "semantic_hash": ""
+  },
+  "src/vite-env.d.ts": {
+    "mtime": 1782010128.9198813,
+    "ast_hash": "9aea542ee9fc55c91e7514ed122d6364",
+    "semantic_hash": ""
+  },
+  "tsconfig.app.json": {
+    "mtime": 1778646021.665024,
+    "ast_hash": "8ad0b8cd47bfc0fd6cf4181e308ad02f",
+    "semantic_hash": ""
+  },
+  "tsconfig.json": {
+    "mtime": 1778646021.6648476,
+    "ast_hash": "a3d39fa780ebff65444de257f291ce6c",
+    "semantic_hash": ""
+  },
+  "tsconfig.node.json": {
+    "mtime": 1778646021.665161,
+    "ast_hash": "9c8269f01ad0128b7b4af2cae23c24fc",
+    "semantic_hash": ""
+  },
+  "vite.config.ts": {
+    "mtime": 1781946921.348985,
+    "ast_hash": "1d4c9461ec2d2c7a18a0cda29da79a60",
+    "semantic_hash": ""
+  },
+  "FIX-REPORT.md": {
+    "mtime": 1782011256.4879007,
+    "ast_hash": "3563f691b5eb975205c1e1b0ac5b2420",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1778646675.666808,
+    "ast_hash": "e8092951bdf613e840ce960564be45fa",
+    "semantic_hash": ""
+  },
+  "STATUS.md": {
+    "mtime": 1781364409.4483309,
+    "ast_hash": "597877c11955300c906b997ba424b448",
+    "semantic_hash": ""
+  },
+  "docs/dev-log/001_scenario_expansion_500_it_category_20260524_2331.md": {
+    "mtime": 1779633142.1969068,
+    "ast_hash": "f526bf3afe98c373906c41b79186126e",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1779503967.738973,
+    "ast_hash": "d42dbe19902a40677d5ac8af841c40e5",
+    "semantic_hash": ""
+  },
+  "test-result.txt": {
+    "mtime": 1779504330.5627308,
+    "ast_hash": "ec31c71e7509e92f47de65e4879e2bce",
+    "semantic_hash": ""
+  },
+  "public/pamout_editorial_mockup.png": {
+    "mtime": 1779504570.3987155,
+    "ast_hash": "2ee1b87743c25234dff70c3f2b66cc57",
+    "semantic_hash": ""
+  },
+  "public/pamout_neobrutalism_mockup.png": {
+    "mtime": 1779504570.4012632,
+    "ast_hash": "da1beb33ac22b20261949d03f2f53743",
+    "semantic_hash": ""
+  },
+  "public/pamout_slate_mockup.png": {
+    "mtime": 1779504570.4036274,
+    "ast_hash": "9531cbf89d46b4af01ac4a2002606fba",
+    "semantic_hash": ""
+  }
+}
